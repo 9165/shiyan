@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="user-scalable=no" name="viewport">
+    <title>食愿记</title>
+    <link rel="stylesheet" href="main.css">
+    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+
+<body>
+
+    <div id="p1" class="frame bg1" style="display: flex;">
+        <div class="chance_frame">
+            <div class="wish_chance chance">许愿:<span class="wish_chance_num"></span>次</div>
+            <div class="help_wish_chance chance">助愿:<span class="help_wish_chance_num"></span>次</div>
+            <div class="lottery_chance chance">抽奖:<span class="lottery_chance_num"></span>次</div>
+        </div>
+
+        <div id="menu" class="center_div">
+            <div style="background-image: url(img/index/syj.png); width: 545px; height: 149px; margin-bottom: 150px;"></div>
+
+            <img src="img/index/makewish.png" alt="许愿" id="btn_wish" class="btn" onclick="window.open('wish.html','_self');"/>
+
+            <img src="img/index/helpwish.png" alt="助愿" id="btn_help_wish" class="btn" onclick="window.open('help_wish.html','_self');"/>
+
+            <img src="img/index/lottery.png" alt="抽奖" id="btn_lottery" class="btn" onclick="window.open('lottery.html','_self');"/>
+
+            <img src="img/index/wishsquare.png" alt="愿望广场" id="btn_wish_square" class="btn" onclick="window.open('wish_square.html','_self');"/>
+
+        </div>
+        
+        <div id="index_left_bottom" style="position: fixed; left: 0; bottom: 0; margin: 0;">
+            <div id="btn_rule" style="background-image: url(img/index/rule.png); width: 310px; height: 310px; float: left;" onclick="goTo('p2')"></div>
+            <div id="btn_collection" style="background-image: url(img/index/collection.png); width: 310px; height: 310px; float: left;" onclick="window.open('favourite.html','_self');"></div>
+        </div>
+
+    </div>
+
+    <div id="p2" class="frame bg1">
+        <div class="top_bar">
+            <!-- <p>抽取愿望</p> -->
+            <div class="back_btn" onclick="goTo('p1')"></div>
+        </div>
+
+        <div id="main_rules" class="center_div">
+            <h2 align="center" style="font-size: 94px">规则</h2>
+            <p>W3C并不“生产”标准。实际上，它扮演的是一个论坛的角色：W3C 以工作组的方式，把某项技术的相关各方聚集起来，最终由他们来产出标准。当然，W3C 并不只是一个观察者：它设定了整个平台的规则，监督整个进程。但这些技术规范（基本上）并不是由W3C的工作人员编写完成的。</p>
+            <p>Web开发者们普遍存在一个误解，以为 W3C手握标准、号令天下，而可怜的浏览器厂商们则唯唯诺诺、莫敢不从。这显然不是真相：对于哪些东西该进入标准，浏览器厂商比W3C有更多的发言权，上面列出的人员结构已经证明了这一点。</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

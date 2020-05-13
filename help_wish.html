@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="user-scalable=no" name="viewport">
+    <title>食愿记 - 助愿</title>
+    <link rel="stylesheet" href="main.css">
+    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+
+<body>
+
+	<div id="p1" class="frame" style="display: flex;">
+	
+		<div class="top_bar">
+			<!-- <p>抽取愿望</p> -->
+			<div class="back_btn" onclick="window.open('index.html','_self')"></div>
+		</div>
+
+		<div class="chance_frame">
+            <div class="help_wish_chance chance">助愿:<span class="help_wish_chance_num"></span>次</div>
+        </div>
+
+		<div style="width:600px; height:600px;  background-color: rgba(0,0,0,0.3); margin-top: 300px;"></div>
+
+		<img alt="抽取愿望" src="img/help_wish/choosewish.png" class="btn" onclick="goTo('p2')"/>
+
+	</div>
+
+	<div class="frame" id="p2">
+
+		<div class="top_bar">
+			<!-- <p>抽取愿望</p> -->
+			<div class="back_btn" onclick="goTo('p1')"></div>
+		</div>
+
+		<div class="chance_frame">
+            <div class="help_wish_chance chance">助愿:<span class="help_wish_chance_num"></span>次</div>
+        </div>
+		
+		<p style="line-height: 0;">选择一个TA的愿望</p>
+		<div id="help_wish_content_1" class="help_wish_content"></div>
+		<div name="" id="help_wish_content_2"  class="help_wish_content"></div>
+		<div name="" id="help_wish_content_3"  class="help_wish_content"></div>
+
+		<img src="img/help_wish/submit.png" class="btn" onclick="goTo('p3')"/>
+	</div>
+
+	<div class="frame" id="p3" style="justify-content: center;">
+		<div align="left" style="width: 80%; line-height: 90px;">
+			<h2>提交成功</h2>
+			<span>这是TA的信息</span><br/>
+			<span>快去帮TA实现愿望吧</span>
+			<div style="border: currentColor solid; border-width: 9px 0 9px 0; margin-top: 60px; line-height: 60px;">
+				<p>姓名：<span id="help_wish_name"></span></p>
+				<p>手机：<span id="help_wish_phone"></span></p>
+				<p>微信号：<span id="help_wish_wechat"></span></p>
+			</div>
+			<p style="font-size: 48px; line-height: 48px;">P.S.信息已保存到收藏夹，可随时查看哦</p>
+		</div>
+		
+		<img src="img/help_wish/backtofirstpage.png" class="btn" onclick="window.open('index.html','_self')"/>
+
+	</div>
+
+</body>
+</html>

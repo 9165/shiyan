@@ -1,0 +1,54 @@
+.wishBtn {
+     width: 600px; height: 100px;
+     margin: 0 auto;
+     font-size: 44px;
+     border: #4e5c59 solid 6px;
+     border-radius: 15px;
+}
+ 
+ .wishBtn > div {
+     width: 50%; height: 100%;
+ }
+ 
+ .btnActive {
+     background-color: #4e5c59;
+     color: rgb(255, 255, 255);
+ }
+ 
+ .main {
+     width: 80%;
+     height: 60%;
+     margin-left: 10%;
+     margin-top: 0;
+     padding: 0;
+     align-self: flex-start;
+ }
+ 
+ .detail {
+     width: 100%;
+     height: 25%;
+     margin-bottom: 77px;
+     padding: 0;
+     align-self: flex-start;
+     border: currentColor solid 8px;
+     box-sizing: border-box;
+     border-radius: 15px;
+ }
+ 
+ .fav_wish_content {
+     width: calc(80% - 40px); height: calc(100% - 40px);
+     padding: 20px;
+ }
+ 
+ .wishDetail {
+     width: 20%;
+     height: 100%;
+     text-align: center;
+ }
+ .fav_wish_content2 {
+     width: 711px;
+     height: 601px;
+     padding: 72px;
+     border: #4e5c59 solid 6px;
+     border-radius: 15px;
+ }

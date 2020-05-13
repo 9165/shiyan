@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="user-scalable=no" name="viewport">
+    <title>食愿记 - 愿望广场</title>
+    <link rel="stylesheet" href="main.css">
+    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+
+<body>
+	<div id="p1" class="frame" style="display: flex;">
+		
+		<div class="top_bar" style="margin-bottom: 40px;">
+			<!-- <p>抽取愿望</p> -->
+			<div class="back_btn" onclick="window.open('index.html','_self')"></div>
+			<div class="help_btn" onclick="window.open('index.html','_self')"></div>
+		</div>
+
+		<div class="chance_frame">
+            <div class="post_chance chance">许愿:<span class="post_chance_num"></span>次</div>
+        </div>
+		
+
+		<div class="top_bar2">
+			愿望广场
+			<div id="btn_make_post" onclick="goTo('p2')"></div>
+		</div>
+		
+		<div class="post_content_frame">
+
+			<div class="post_preview">
+				<div class="post_preview_user">用户xxx</div>
+				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
+				<img class="post_preview_image"/>
+				<img class="post_preview_image"/>
+			</div>
+			<div class="post_preview">
+				<div class="post_preview_user">用户xxx</div>
+				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
+			</div>
+			<div class="post_preview">
+				<div class="post_preview_user">用户xxx</div>
+				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
+			</div>
+			<div class="post_preview">
+				<div class="post_preview_user">用户xxx</div>
+				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
+			</div>
+			<div class="post_preview">
+				<div class="post_preview_user">用户xxx</div>
+				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
+			</div>
+			<div class="post_preview">
+				<div class="post_preview_user">用户xxx</div>
+				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
+			</div>
+			<div class="post_preview">
+				<div class="post_preview_user">用户xxx</div>
+				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
+			</div>
+			
+		</div>
+
+	</div>
+
+
+	<div id="p2" class="frame">
+		
+		<div class="top_bar" style="margin-bottom: 40px;">
+			<!-- <p>抽取愿望</p> -->
+			<div class="back_btn" onclick="window.open('index.html','_self')"></div>
+		</div>
+
+		<div class="top_bar2" style="margin-bottom: 0;">
+			发帖
+			<div id="btn_send_post" onclick="goTo('p2')"></div>
+		</div>
+		
+		<textarea name="" id="post_edit_text"placeholder="说些什么吧……"></textarea>
+
+		<div id="post_edit_image_frame" style="align-self: flex-start; display: inline-block; width: calc(100% - 86px); display: flex; flex-wrap: wrap; padding-left: 86px;">
+			<div class="post_edit_image">
+				<div class="btn_delete_image"></div>
+			</div>
+
+			<div id="btn_post_add_image" class="post_edit_image">＋
+			</div>
+		</div>
+
+	</div>
+</body>
+
+</html>

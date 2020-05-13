@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="user-scalable=no" name="viewport">
+    <title>食愿记 - 许愿</title>
+    <link rel="stylesheet" href="main.css">
+    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+
+<body>
+
+	<div id="p1" class="frame" style="display: flex;">
+		
+			<div class="top_bar">
+				<!-- <p>抽取愿望</p> -->
+				<div class="back_btn" onclick="window.open('index.html','_self')"></div>
+				<div class="help_btn" onclick="window.open('index.html','_self')"></div>
+			</div>
+
+			<div class="chance_frame">
+	            <div class="wish_chance chance">许愿:<span class="wish_chance_num"></span>次</div>
+	        </div>
+
+		
+			<textarea name="" id="wish_content"></textarea>
+		
+			<div style="width: 800px; margin-bottom: 30px;">
+				<span>选择信纸</span>
+				<div id="select_paper_frame" style="display:flex; justify-content: space-between; margin-top: 10px;">
+					<div id="paper_1"></div>
+					<div id="paper_2"></div>
+					<div id="paper_3"></div>
+					<div id="paper_4"></div>
+				</div>
+			</div>
+
+			<img id="btn_next" src="img/wish/next.png" class="btn" onclick="goTo('p2')" style="margin-top: 30px; margin-bottom: 0;" />
+
+	</div>
+
+	<div id="p2" class="frame">
+
+		<div class="top_bar">
+			<!-- <p>抽取愿望</p> -->
+			<div class="back_btn" onclick="goTo('p1')"></div>
+		</div>
+		
+		<div style="height: 200px;"></div>
+
+		<table id="wish_info" style="margin-bottom: 0;">
+			<tr>
+				<td>姓名</td>
+				<td><input type="text" id="wish_name"></td>
+			</tr>
+			<tr>
+				<td>手机</td>
+				<td><input type="text" id="wish_phone"></td>
+			</tr>
+			<tr>
+				<td>微信号</td>
+				<td><input type="text" id="wish_wechat"></td>
+			</tr>
+		</table>
+
+		<p style="margin:0 40 90px 40px; font-size: 50px;">梯仔答应你，绝不乱告诉别人你的信息</p>
+
+		<img src="img/wish/yes.png" class="btn" onclick="goTo('p3')"/>
+	</div>
+	
+	<div id="p3" class="frame">
+
+		<div class="top_bar" style="margin-bottom: 200px;">
+			<!-- <p>抽取愿望</p> -->
+			<div class="back_btn" onclick="window.open('index.html','_self')"></div>
+		</div>
+
+		<h2 style="font-size: 110px;">许愿成功</h2>
+		<img src="img/wish/tomakewish.png" class="btn"/>
+		<img src="img/wish/tohelpwish.png" class="btn"/>
+
+	</div>
+
+</body>
+
+</html>

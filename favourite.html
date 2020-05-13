@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="user-scalable=no" name="viewport">
+    <title>食愿记 - 许愿</title>
+    <link rel="stylesheet" href="favourite_style.css">
+    <link rel="stylesheet" href="main.css">
+    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+
+<body>
+    <div id="p1" class="frame" style="display: flex;">
+        
+        <div class="top_bar">
+            <!-- <p>抽取愿望</p> -->
+            <div class="back_btn" onclick="window.open('index.html','_self')"></div>
+            <div class="help_btn" onclick="window.open('index.html','_self')"></div>
+        </div>
+
+        <div class="wishBtn">
+            <div class="btn btnActive" style="float: left;">我的祝愿</div>
+            <div class="btn" style="float: right;" onclick="goTo('p2')">我的许愿</div>
+        </div>
+        <div class="main">
+            <div class="detail">
+                <div class="fav_wish_content" style="float: left;">愿望文案</div>
+                <div class="wishDetail btn btnActive " style="float: right;" onclick="goTo('p3')">详情</div>
+            </div>
+            <div class="detail">
+                <div class="fav_wish_content" style="float: left;">愿望文案</div>
+                <div class="wishDetail btn btnActive " style="float: right;" onclick="goTo('p3')">详情</div>
+            </div>
+            <div class="detail">
+                <div class="fav_wish_content" style="float: left;">愿望文案</div>
+                <div class="wishDetail btn btnActive " style="float: right;" onclick="goTo('p3')">详情</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="p2" class="frame">
+
+        <div class="top_bar">
+            <!-- <p>抽取愿望</p> -->
+            <div class="back_btn" onclick="window.open('index.html','_self')"></div>
+            <div class="help_btn" onclick="window.open('index.html','_self')"></div>
+        </div>
+
+        <div class="wishBtn">
+            <div class="btn" style="float: left;" onclick="goTo('p1')">我的祝愿</div>
+            <div class="btn btnActive" style="float: right;">我的许愿</div>
+        </div>
+        <div class="main">
+            <div class="detail">
+                <div class="fav_wish_content" style="float: left;">愿望文案</div>
+                <div class="wishDetail btn btnActive " style="float: right;" onclick="goTo('p3')">详情</div>
+            </div>
+            <div class="detail">
+                <div class="fav_wish_content" style="float: left;">愿望文案</div>
+                <div class="wishDetail btn btnActive " style="float: right;" onclick="goTo('p3')">详情</div>
+            </div>
+            <div class="detail">
+                <div class="fav_wish_content" style="float: left;">愿望文案</div>
+                <div class="wishDetail btn btnActive " style="float: right;" onclick="goTo('p3')">详情</div>
+            </div>
+        </div>
+
+    </div>
+    <div id="p3" class="frame">
+
+        <div class="top_bar" style="margin-bottom: 0;">
+            <!-- <p>抽取愿望</p> -->
+            <div class="back_btn" onclick="goTo('p1')"></div>
+            <div class="help_btn" onclick="window.open('index.html','_self')"></div>
+        </div>
+
+        <div style="width:855px; line-height: 40px;">
+            <p>姓名：<span class="fav_wish_name"></span></p>
+            <p>手机：<span class="fav_wish_phone"></span></p>
+            <p>微信号：<span class="fav_wish_wechat"></span></p>
+        </div>
+        
+        <div class="fav_wish_content2">愿望内容</div>
+        <img id="btn_next" alt="我已完成" src="img/favourite/finish.png" class="btn" onclick="goTo('p2')" style="margin-bottom: 40px;" />
+        <img id="btn_next" alt="放弃" src="img/favourite/giveup.png" class="btn" onclick="goTo('p2')"/>
+    </div>
+</body>
+
+</html>

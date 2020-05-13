@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="user-scalable=no" name="viewport">
+    <title>食愿记 - 抽奖</title>
+    <link rel="stylesheet" href="main.css">
+    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+
+<body>
+
+	<div id="p1" class="frame" style="display: flex;">
+
+		<div class="top_bar" style="margin-bottom: 0;">
+			<!-- <p>抽取愿望</p> -->
+			<div class="back_btn" onclick="window.open('index.html','_self')"></div>
+			<div class="help_btn" onclick="window.open('index.html','_self')"></div>
+		</div>
+
+		<div class="chance_frame">
+            <div class="lottery_chance chance">抽奖:<span class="lottery_chance_num"></span>次</div>
+        </div>
+		 
+
+		<div id="lottery_animation"></div>
+
+		<img id="lottery_btn" alt="抽奖" class="btn" src="img/lottery/lottory2.png"  style="margin-top: 21px; margin-bottom: 49px;" />
+
+		<img id="lottery_illu" alt="图鉴" class="btn long_btn" onclick="goTo('p2')" src="img/lottery/picture.png"/>
+
+	</div>
+
+	<div class="frame" id="p2">
+
+		<div class="top_bar" style="margin-bottom: 10px;">
+			<!-- <p>抽取愿望</p> -->
+			<div class="back_btn" onclick="goTo('p1')"></div>
+		</div>
+		
+		<div class="top_bar2">图鉴</div>
+
+		<div id="illu_preview_frame" class="post_content_frame">
+			<div class="illu_preview">
+				<div class="illu_image"></div>
+				<p>食物名字</p>
+				<p>收集进程：</p>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="frame" id="p3">
+	</div>
+	
+	<div class="frame" id="p4">
+	</div>
+
+</body>
+</html>
