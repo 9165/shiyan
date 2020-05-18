@@ -38,15 +38,20 @@
 		<div class="top_bar" style="margin-bottom: 10px;">
 			<!-- <p>抽取愿望</p> -->
 			<div class="back_btn" onclick="goTo('p1')"></div>
+			<div class="help_btn" onclick="window.open('index.html','_self')"></div>
 		</div>
 		
 		<div class="top_bar2">图鉴</div>
 
 		<div id="illu_preview_frame" class="post_content_frame">
 			<div class="illu_preview">
-				<div class="illu_image"></div>
-				<p>食物名字</p>
-				<p>收集进程：</p>
+				<div class="illu_preview_left">
+					<div class="illu_image"></div>
+					<p>食物名字</p>
+					<span>收集进程：<img src="img/lottery/piece.png" alt="" class="pine"></span>
+				</div>
+			
+				<div class="btn_illu_more" onclick="goTo('p3')"></div>
 			</div>
 
 		</div>
@@ -54,9 +59,54 @@
 	</div>
 
 	<div class="frame" id="p3">
+
+		<div class="top_bar" style="margin-bottom: 10px;">
+			<!-- <p>抽取愿望</p> -->
+			<div class="back_btn" onclick="goTo('p1')"></div>
+		</div>
+
+		<div class="center_div" style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; width: calc(100% - 100px);">
+			
+			<span id="lottery_more_name" style="font-size: 90px; margin-right: 80px;">食物名字</span>
+
+			<div id="lottery_more_image"></div>
+			
+			<div class="lottery_more_in" id="lottery_more_bi">基本介绍xxx</div>
+
+			<div class="lottery_more_in" id="lottery_more_di">详细介绍xxx</div>
+
+			<div class="lottery_more_in" id="lottery_more_lock">
+				<img src="img/lottery/close.png" alt=""><br/>
+				<p style="margin-top: -80px;">集满三个碎片才能解锁精美立绘和海报哦</p>
+			</div>
+
+		</div>
+
 	</div>
 	
-	<div class="frame" id="p4">
+	<div id="p4" class="frame">
+		
+		<div style="height: 200px;"></div>
+
+		<table id="wish_info" style="margin-bottom: 0;">
+			<tr>
+				<td>姓名</td>
+				<td><input type="text" id="lottery_name"></td>
+			</tr>
+			<tr>
+				<td>手机</td>
+				<td><input type="text" id="lottery_phone"></td>
+			</tr>
+			<tr>
+				<td>宿舍</td>
+				<td><input type="text" id="lottery_dormitory"></td>
+			</tr>
+		</table>
+
+		<p style="margin:0 40 90px 40px; font-size: 50px;">梯仔答应你，绝不乱告诉别人你的信息</p>
+
+		<img src="img/wish/yes.png" class="btn" onclick="goTo('p3')"/>
+
 	</div>
 
 </body>
