@@ -6,7 +6,7 @@
     <meta content="user-scalable=no" name="viewport">
     <title>食愿记 - 愿望广场</title>
     <link rel="stylesheet" href="main.css">
-    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </head>
 
@@ -16,7 +16,19 @@
 		<div class="top_bar" style="margin-bottom: 40px;">
 			<!-- <p>抽取愿望</p> -->
 			<div class="back_btn" onclick="window.open('index.html','_self')"></div>
-			<div class="help_btn" onclick="window.open('index.html','_self')"></div>
+			<div class="help_btn" onclick="$('#h1').fadeIn();"></div>
+		</div>
+			
+		<div id="h1" class="help">
+			<div class="help_window">
+				<h1>玩法介绍</h1>
+				<p>这是一个展示已实现的愿望的平台。点击“＋”号，可以发布答谢愿者的动态。</p>
+				<p>۹(･༥･´)و 和大家一起分享被实现愿望的喜悦吧~</p>
+				<p>规则</p>
+				<p>1.每被实现一个愿望，就能获得一次发动态机会。</p>
+				<p>2.每发布一则动态，就能够获得一次抽碎片机会。</p>
+			</div>
+			<div class="help_close" onclick="$(this).parent().fadeOut();"></div>
 		</div>
 
 		<div class="chance_frame">

@@ -7,7 +7,7 @@
     <title>食愿记 - 许愿</title>
     <link rel="stylesheet" href="favourite_style.css">
     <link rel="stylesheet" href="main.css">
-    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </head>
 
@@ -17,7 +17,16 @@
         <div class="top_bar">
             <!-- <p>抽取愿望</p> -->
             <div class="back_btn" onclick="window.open('index.html','_self')"></div>
-            <div class="help_btn" onclick="window.open('index.html','_self')"></div>
+            <div class="help_btn" onclick="$('#h1').fadeIn();"></div>
+        </div>
+        
+        <div id="h1" class="help">
+            <div class="help_window">
+                <h1>玩法介绍</h1>
+                <p>在这里可以看到已认领的愿望，点击详情，可查看许愿者的联系方式。</p>
+                <p>੭ ᐕ)੭*⁾⁾快去帮助ta实现愿望吧~</p>
+            </div>
+            <div class="help_close" onclick="$(this).parent().fadeOut();"></div>
         </div>
 
         <div class="wishBtn">
@@ -46,7 +55,19 @@
         <div class="top_bar">
             <!-- <p>抽取愿望</p> -->
             <div class="back_btn" onclick="window.open('index.html','_self')"></div>
-            <div class="help_btn" onclick="window.open('index.html','_self')"></div>
+            <div class="help_btn" onclick="$('#h2').fadeIn();"></div>
+        </div>
+        
+        <div id="h2" class="help">
+            <div class="help_window">
+                <h1>玩法介绍</h1>
+                <p>在这里可以看到曾经许下的愿望，愿望被实现后可以点击“确认已实现”。</p>
+                <p>(´∀｀)♡点下确认的那一刻有没有很温暖呢~</p>
+                <p>规则:</p>
+                <p>1.当助愿者提交了确认申请后，被助愿者才能确定愿望已实现。</p>
+                <p>2.确认愿望实现后，可以获得一次发动态机会。</p>
+            </div>
+            <div class="help_close" onclick="$(this).parent().fadeOut();"></div>
         </div>
 
         <div class="wishBtn">
@@ -74,7 +95,19 @@
         <div class="top_bar" style="margin-bottom: 0;">
             <!-- <p>抽取愿望</p> -->
             <div class="back_btn" onclick="goTo('p1')"></div>
-            <div class="help_btn" onclick="window.open('index.html','_self')"></div>
+            <div class="help_btn" onclick="$('#h3').fadeIn();"></div>
+        </div>
+        
+        <div id="h3" class="help">
+            <div class="help_window">
+                <h1>玩法介绍</h1>
+                <p>在这里可以获得许愿这的联系方式以及愿望描述，以及进行完成任务后的确认操作。</p>
+                <p>(๑°3°๑)有了这个就不用担心健忘啦~</p>
+                <p>规则</p>
+                <p>1.完成对方任务后，点击“我已完成”按钮，待许愿者确认后，将获得一次抽碎片机会。</p>
+                <p>2.因故不能完成愿望，可点击“放弃”，返还一次助愿次数。</p>
+            </div>
+            <div class="help_close" onclick="$(this).parent().fadeOut();"></div>
         </div>
 
         <div style="width:855px; line-height: 40px;">
