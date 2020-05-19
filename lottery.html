@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="main.css">
     <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="lottery.js"></script>
 </head>
 
 <body>
@@ -37,9 +38,17 @@
         </div>
 		 
 
-		<div id="lottery_animation"></div>
+		<div id="lottery_animation">
+			
+			<img src="img/lottery/lottery_stump.svg" style="margin-top: 400px;" alt="树桩">
 
-		<img id="lottery_btn" alt="抽奖" class="btn" src="img/lottery/lottory2.png"  style="margin-top: 21px; margin-bottom: 49px;" />
+			<img id="lottery_pot" src="img/lottery/lottery_pot.svg" style="position:relative; top:-900px;" alt="锅">
+			
+			<img id="lottery_spoon" src="img/lottery/lottery_spoon.svg" width="180px" style="position:relative; left:350px; top:-1350px; transform-origin: 100% 50%;" alt="勺子">
+
+		</div>
+
+		<img id="lottery_btn" alt="抽奖" class="btn" src="img/lottery/lottory2.png"  style="margin-top: 210px; margin-bottom: 49px;" onclick="$('#lottery_spoon').css('animation','spoon 2 0.5s'); $('#lottery_pot').css('animation','lottery_pot 2 0.5s');" />
 
 		<img id="lottery_illu" alt="图鉴" class="btn long_btn" onclick="goTo('p2')" src="img/lottery/picture.png"/>
 

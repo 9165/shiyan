@@ -23,9 +23,18 @@
             <div class="help_wish_chance chance">助愿:<span class="help_wish_chance_num"></span>次</div>
         </div>
 
-		<div style="width:600px; height:600px;  background-color: rgba(0,0,0,0.3); margin-top: 300px;"></div>
+		<div style="width:600px; height:600px; margin-top: 400px;">
+			<img id="help_wish_pot" src="img/help_wish/help_wish_pot.svg" alt="锅">
+			<img id="help_wish_bubbles" src="img/help_wish/help_wish_bubbles.svg" width="400px" style="position:relative; left: 100px; top:-500px;" alt="泡泡">
+			<img id="help_wish_stars" src="img/help_wish/help_wish_stars.svg" style="position:relative;top:-1100px;" alt="星星">
+		</div>
 
-		<img alt="抽取愿望" src="img/help_wish/choosewish.png" class="btn" onclick="goTo('p2')"/>
+		<img alt="抽取愿望" src="img/help_wish/choosewish.png" class="btn" onclick="
+		$('#help_wish_bubbles').css('animation','bubbles 1 0.5s').css('animation-fill-mode',' forwards');
+		$('#help_wish_stars').css('animation','stars 2 0.5s');
+		setTimeout('goTo(\'p2\');',1000);
+		setTimeout('$(\'#help_wish_bubbles\').css(\'animation\',\'none\'); $(\'#help_wish_stars\').css(\'animation\',\'none\');',2000);
+		"/>
 
 	</div>
 
