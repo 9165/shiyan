@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="main.css">
     <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="help_wish.js"></script>
 </head>
 
 <body>
@@ -23,17 +24,25 @@
             <div class="help_wish_chance chance">助愿:<span class="help_wish_chance_num"></span>次</div>
         </div>
 
-		<div style="width:600px; height:600px; margin-top: 400px;">
-			<img id="help_wish_pot" src="img/help_wish/help_wish_pot.svg" alt="锅">
-			<img id="help_wish_bubbles" src="img/help_wish/help_wish_bubbles.svg" width="400px" style="position:relative; left: 100px; top:-500px;" alt="泡泡">
-			<img id="help_wish_stars" src="img/help_wish/help_wish_stars.svg" style="position:relative;top:-1100px;" alt="星星">
+		<div style="width:600px; height:600px; margin-top: 800px;">
+			<img id="help_wish_stump" src="img/help_wish/help_wish_stump.svg" width="800px" style="position: relative; left: -100px;" alt="树桩">
+			<img id="help_wish_pot" src="img/help_wish/help_wish_pot.svg" style="position:relative;top:-1120px; z-index: 4;" alt="锅">
+			<img id="help_wish_bubbles" src="img/help_wish/help_wish_bubbles.svg" width="400px" style="position:relative; left: 100px; top:-1600px;" alt="泡泡">
+			<img id="help_wish_stars" src="img/help_wish/help_wish_stars.svg" style="position:relative;top:-2200px; z-index: 2;" alt="星星">
+			<div id="help_wish_chops" style="position:relative; top:-2150px; left: 250px; transform: rotate(45deg); transform-origin: 100% 100%; z-index: 3; opacity: 0;">
+				<img id="help_wish_chop1" src="img/help_wish/help_wish_chop.svg" width="25px" style="transform-origin: 100% 0;" alt="筷子1">
+				<img id="help_wish_chop2" src="img/help_wish/help_wish_chop.svg" width="25px" alt="筷子2" style=" transform: rotate(10deg);">
+			</div>
+			
 		</div>
 
-		<img alt="抽取愿望" src="img/help_wish/choosewish.png" class="btn" onclick="
-		$('#help_wish_bubbles').css('animation','bubbles 1 0.5s').css('animation-fill-mode',' forwards');
+		<img alt="抽取愿望" src="img/help_wish/choosewish.png" style="position: absolute; bottom: 70px; left: calc(50% - 190px); z-index: 5;" class="btn" onclick="
+		$('#help_wish_bubbles').css('animation','bubbles 1 1s').css('animation-fill-mode',' forwards');
 		$('#help_wish_stars').css('animation','stars 2 0.5s');
+		$('#help_wish_chops').css('animation','chops 1 1s').css('animation-fill-mode',' forwards');
+		$('#help_wish_chop1').css('animation','chop1 1 1s').css('animation-fill-mode',' forwards');
 		setTimeout('goTo(\'p2\');',1000);
-		setTimeout('$(\'#help_wish_bubbles\').css(\'animation\',\'none\'); $(\'#help_wish_stars\').css(\'animation\',\'none\');',2000);
+		setTimeout('$(\'#help_wish_bubbles\').css(\'animation\',\'none\'); $(\'#help_wish_stars\').css(\'animation\',\'none\'); $(\'#help_wish_chops\').css(\'animation\',\'none\'); $(\'#help_wish_chop1\').css(\'animation\',\'none\');',2000);
 		"/>
 
 	</div>

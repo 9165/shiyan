@@ -13,7 +13,7 @@
 
 <body>
 
-	<div id="p1" class="frame" style="display: flex;">
+	<div id="p1" class="frame" style="display: flex;" title="抽奖页">
 
 		<div class="top_bar" style="margin-bottom: 0;">
 			<!-- <p>抽取愿望</p> -->
@@ -48,9 +48,12 @@
 
 		</div>
 
-		<img id="lottery_btn" alt="抽奖" class="btn" src="img/lottery/lottory2.png"  style="margin-top: 210px; margin-bottom: 49px;" onclick="$('#lottery_spoon').css('animation','spoon 2 0.5s'); $('#lottery_pot').css('animation','lottery_pot 2 0.5s');" />
+		<img id="lottery_btn" alt="抽奖" class="btn" src="img/lottery/lottory2.png"  style="margin-top: 210px; margin-bottom: 49px;" onclick="
+		$('#lottery_spoon').css('animation','spoon 2 0.5s'); 
+		$('#lottery_pot').css('animation','lottery_pot 2 0.5s'); 
+		setTimeout('$(\'#lottery_spoon\').css(\'animation\',\'none\'); $(\'#lottery_pot\').css(\'animation\',\'none\'); lottery();',1000);" />
 
-		<img id="lottery_illu" alt="图鉴" class="btn long_btn" onclick="goTo('p2')" src="img/lottery/picture.png"/>
+		<img id="lottery_illu" alt="图鉴" class="btn long_btn" onclick="goTo('p2'); getIlluData();" src="img/lottery/picture.png"/>
 
 	</div>
 
@@ -77,16 +80,7 @@
 		<div class="top_bar2">图鉴</div>
 
 		<div id="illu_preview_frame" class="post_content_frame">
-			<div class="illu_preview">
-				<div class="illu_preview_left">
-					<div class="illu_image"></div>
-					<p>食物名字</p>
-					<span>收集进程：<img src="img/lottery/piece.png" alt="" class="pine"></span>
-				</div>
-			
-				<div class="btn_illu_more" onclick="goTo('p3')"></div>
-			</div>
-
+			<!-- 此处插入食物预览 -->
 		</div>
 
 	</div>
@@ -95,20 +89,21 @@
 
 		<div class="top_bar" style="margin-bottom: 10px;">
 			<!-- <p>抽取愿望</p> -->
-			<div class="back_btn" onclick="goTo('p1')"></div>
+			<div class="back_btn" onclick="goTo('p2')"></div>
 		</div>
 
-		<div class="center_div" style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; width: calc(100% - 100px);">
+		<div style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; width: calc(100% - 100px); height: 70%; margin: 0 auto;">
 			
-			<span id="lottery_more_name" style="font-size: 90px; margin-right: 80px;">食物名字</span>
+			<p id="lottery_more_name" style="font-size: 90px; text-align:center; width:calc(90% - 430px);">食物名字</p>
 
 			<div id="lottery_more_image"></div>
 			
 			<div class="lottery_more_in" id="lottery_more_bi">基本介绍xxx</div>
 
 			<div class="lottery_more_in" id="lottery_more_di">详细介绍xxx</div>
+			<div id="btn_lh" style="animation: scale_div infinite 0.5s; border: currentColor solid 8px; padding: 10px; border-radius: 10px; position: absolute; right: 50px; top: 50px; display: none;">点击查看新人物立绘</div>
 
-			<div class="lottery_more_in" id="lottery_more_lock">
+			<div class="lottery_more_in" id="lottery_more_lock" style="text-indent: 0;">
 				<img src="img/lottery/close.png" alt=""><br/>
 				<p style="margin-top: -80px;">集满三个碎片才能解锁精美立绘和海报哦</p>
 			</div>
@@ -139,6 +134,28 @@
 		<p style="margin:0 40 90px 40px; font-size: 50px;">梯仔答应你，绝不乱告诉别人你的信息</p>
 
 		<img src="img/wish/yes.png" class="btn" onclick="goTo('p3')"/>
+
+	</div>
+	
+
+	<div id="lottery_chr_frame" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.8);display: none;">
+		<div class="center_div" style="text-align: center;">
+			<div id="scale_div" style="animation: scale_div 2 2s; display: none;">
+				<div id="lottery_chr_img" style="width: 800px; height: 800px; background-color: rgba(0,0,0,0.3); background-size: 100% 100%; box-shadow: rgba(0,0,0,0.3) 0 10px 10px 10px; position: relative;"></div>
+				<p style="font-size: 60px;">恭喜获得碎片：<span id="lottery_chr_name"></span></p>
+			</div>
+		</div>
+			<p align="center" style="margin-top: 200px;"><img id="btn_close_lottery_chr" src="img/wish/yes.png" class="btn" onclick="$('#lottery_chr_frame').fadeOut()"/></p>
+	</div>
+
+
+	<div id="lh_frame" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.8); display: none;">
+		<div class="center_div" style="text-align: center;">
+			<div id="scale_div">
+				<div id="lh_img" style="width: 800px; height: 800px; background-color: rgba(0,0,0,0.3); background-size: 100% 100%; box-shadow: rgba(0,0,0,0.3) 0 10px 10px 10px; position: relative;"></div>
+			</div>
+			<p align="center" style="margin-top: 200px;"><img id="btn_close_lottery_chr" src="img/wish/yes.png" class="btn" onclick="$('#lh_frame').fadeOut()"/></p>
+		</div>
 
 	</div>
 

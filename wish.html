@@ -41,19 +41,31 @@
 	        </div>
 
 		
-			<textarea name="" id="wish_content"></textarea>
+			<textarea name="" id="wish_content" placeholder="[示例]
+为我唱一首歌
+晨间叫醒我
+为我读一首诗
+一起监督写作业
+生日当天发祝福
+为我拍一张照片（蓝天、笑脸、花）
+为我点一份美团早餐
+晚安时间陪我夜聊"></textarea>
 		
 			<div style="width: 800px; margin-bottom: 30px;">
 				<span>选择信纸</span>
-				<div id="select_paper_frame" style="display:flex; justify-content: space-between; margin-top: 10px;">
-					<div id="paper_1"></div>
-					<div id="paper_2"></div>
-					<div id="paper_3"></div>
-					<div id="paper_4"></div>
+				<div id="select_paper_frame" style="display:flex; margin-top: 10px; height: 158px;">
+					<div class="btn_paper" id="btn_paper0" style="background-image:url(img/wish/paper/paper0.png)" onclick="selectPaper(0);">✔</div>
+					<div class="btn_paper" id="btn_paper1" style="background-image:url(img/wish/paper/paper1.png)" onclick="selectPaper(1);"></div>
+					<div class="btn_paper" id="btn_paper2" style="background-image:url(img/wish/paper/paper2.png)" onclick="selectPaper(2);"></div>
+					<div class="btn_paper" id="btn_paper3" style="background-image:url(img/wish/paper/paper3.png)" onclick="selectPaper(3);"></div>
+					<div class="btn_paper" id="btn_paper4" style="background-image:url(img/wish/paper/paper4.png)" onclick="selectPaper(4);"></div>
+					<div class="btn_paper" id="btn_paper5" style="background-image:url(img/wish/paper/paper5.png)" onclick="selectPaper(5);"></div>
+					<div class="btn_paper" id="btn_paper6" style="background-image:url(img/wish/paper/paper6.png)" onclick="selectPaper(6);"></div>
+					<div class="btn_paper" id="btn_paper7" style="background-image:url(img/wish/paper/paper7.png)" onclick="selectPaper(7);"></div>
 				</div>
 			</div>
 
-			<img id="btn_next" src="img/wish/next.png" class="btn" onclick="goTo('p2')" style="margin-top: 30px; margin-bottom: 0;" />
+			<img id="btn_next" src="img/wish/next.png" class="btn" onclick="goTo('p2'); document.getElementById('wish_name').select();" style="margin-top: 30px; margin-bottom: 0;" />
 
 	</div>
 
@@ -69,11 +81,14 @@
 		<table id="wish_info" style="margin-bottom: 0;">
 			<tr>
 				<td>姓名</td>
-				<td><input type="text" id="wish_name"></td>
+				<td><input type="text" id="wish_name" onkeyup="enterTo('wish_phone')"></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="font-size: 40px; text-align: center;">手机号和微信号至少填一项，若想在能沟通基础上保护隐私则可以只填微信号；若为手机号必须为11位</td>
 			</tr>
 			<tr>
 				<td>手机</td>
-				<td><input type="text" id="wish_phone"></td>
+				<td><input type="text" id="wish_phone" onkeyup="enterTo('wish_wechat')"></td>
 			</tr>
 			<tr>
 				<td>微信号</td>
@@ -83,10 +98,18 @@
 
 		<p style="margin:0 40 90px 40px; font-size: 50px;">梯仔答应你，绝不乱告诉别人你的信息</p>
 
-		<img src="img/wish/yes.png" class="btn" onclick="goTo('p3')"/>
+		<img id="btn_check" src="img/wish/yes.png" class="btn" onclick="collectData();"/>
 	</div>
 	
 	<div id="p3" class="frame">
+
+		<div class="top_bar" style="margin-bottom: 200px;">
+			<div class="back_btn" onclick="goTo('p2')"></div>
+		</div>
+
+	</div>
+
+	<div id="p4" class="frame">
 
 		<div class="top_bar" style="margin-bottom: 200px;">
 			<!-- <p>抽取愿望</p> -->
