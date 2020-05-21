@@ -30,6 +30,7 @@
 					<p>规则</p>
 					<p>1.每日有3次许愿机会，每许愿一次，获得一次抽碎片机会。</p>
 					<p>2.不同的愿望可以留下不同的联系方式，但要确保助愿者能够取得联系。</p>
+					<p>3.选择一个喜欢的许愿精灵，助愿时他人可以看到哦（类似信纸）</p>
 				</div>
 				<div class="help_close" onclick="$(this).parent().fadeOut();"></div>
 			</div>
@@ -52,17 +53,20 @@
 晚安时间陪我夜聊"></textarea>
 		
 			<div style="width: 800px; margin-bottom: 30px;">
-				<span>选择信纸</span>
-				<div id="select_paper_frame" style="display:flex; margin-top: 10px; height: 158px;">
-					<div class="btn_paper" id="btn_paper0" style="background-image:url(img/wish/paper/paper0.png)" onclick="selectPaper(0);">✔</div>
-					<div class="btn_paper" id="btn_paper1" style="background-image:url(img/wish/paper/paper1.png)" onclick="selectPaper(1);"></div>
-					<div class="btn_paper" id="btn_paper2" style="background-image:url(img/wish/paper/paper2.png)" onclick="selectPaper(2);"></div>
-					<div class="btn_paper" id="btn_paper3" style="background-image:url(img/wish/paper/paper3.png)" onclick="selectPaper(3);"></div>
-					<div class="btn_paper" id="btn_paper4" style="background-image:url(img/wish/paper/paper4.png)" onclick="selectPaper(4);"></div>
-					<div class="btn_paper" id="btn_paper5" style="background-image:url(img/wish/paper/paper5.png)" onclick="selectPaper(5);"></div>
-					<div class="btn_paper" id="btn_paper6" style="background-image:url(img/wish/paper/paper6.png)" onclick="selectPaper(6);"></div>
-					<div class="btn_paper" id="btn_paper7" style="background-image:url(img/wish/paper/paper7.png)" onclick="selectPaper(7);"></div>
+				<span style="font-size: 50px;">选择许愿精灵(右划更多)</span>
+				<div style="width:100%; overflow: scroll; display: flex; flex-direction: row;">
+					<div id="select_paper_frame" style="display:flex; margin-top: 10px; width: 200%; height: 250px; align-items: center; ">
+						<div class="btn_paper" id="btn_paper0" style="background-image:url(img/wish/paper/paper0.png); background-color: currentColor;" onclick="selectPaper(0);">✔</div>
+						<div class="btn_paper" id="btn_paper1" style="background-image:url(img/wish/paper/paper1.png)" onclick="selectPaper(1);"></div>
+						<div class="btn_paper" id="btn_paper2" style="background-image:url(img/wish/paper/paper2.png)" onclick="selectPaper(2);"></div>
+						<div class="btn_paper" id="btn_paper3" style="background-image:url(img/wish/paper/paper3.png)" onclick="selectPaper(3);"></div>
+						<div class="btn_paper" id="btn_paper4" style="background-image:url(img/wish/paper/paper4.png)" onclick="selectPaper(4);"></div>
+						<div class="btn_paper" id="btn_paper5" style="background-image:url(img/wish/paper/paper5.png)" onclick="selectPaper(5);"></div>
+						<div class="btn_paper" id="btn_paper6" style="background-image:url(img/wish/paper/paper6.png)" onclick="selectPaper(6);"></div>
+						<div class="btn_paper" id="btn_paper7" style="background-image:url(img/wish/paper/paper7.png)" onclick="selectPaper(7);"></div>
+					</div>	
 				</div>
+
 			</div>
 
 			<img id="btn_next" src="img/wish/next.png" class="btn" onclick="goTo('p2'); document.getElementById('wish_name').select();" style="margin-top: 30px; margin-bottom: 0;" />
@@ -80,7 +84,7 @@
 
 		<table id="wish_info" style="margin-bottom: 0;">
 			<tr>
-				<td>姓名</td>
+				<td>署名</td>
 				<td><input type="text" id="wish_name" onkeyup="enterTo('wish_phone')"></td>
 			</tr>
 			<tr>
@@ -101,12 +105,21 @@
 		<img id="btn_check" src="img/wish/yes.png" class="btn" onclick="collectData();"/>
 	</div>
 	
-	<div id="p3" class="frame">
+	<div id="p3" class="frame" style="text-align: left;">
 
-		<div class="top_bar" style="margin-bottom: 200px;">
+		<div class="top_bar" style="margin-bottom: -50px;">
 			<div class="back_btn" onclick="goTo('p2')"></div>
 		</div>
-
+		
+		<div id="confirm_form" style="width: 90%; height: calc(100% - 250px); line-height: 40px;">
+			<h1 align="center">确认信息</h1>
+			<p>署名：<span id="confirm_name"></span></p>
+			<p>手机：<span id="confirm_phone"></span></p>
+			<p>微信：<span id="confirm_wechat"></span></p>
+			<p>内容：</p>
+			<div id="confirm_content" style="width:calc(100% - 40px); height: calc(100% - 940px); overflow-y: scroll; border: currentColor solid 6px; border-radius: 10px; text-indent: 2em; padding:20px; line-height: 80px;"></div>
+		</div>
+		<img id="btn_send_wish" src="img/wish/yes.png" class="btn" style="position: absolute; bottom: 0; left: calc(50% - 190px)" onclick="sendWish();"/>
 	</div>
 
 	<div id="p4" class="frame">

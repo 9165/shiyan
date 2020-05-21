@@ -72,15 +72,15 @@
         </div>
 		
 		<p style="line-height: 0;">选择一个TA的愿望</p>
-		<div id="help_wish_content_1" class="help_wish_content"></div>
-		<div name="" id="help_wish_content_2"  class="help_wish_content"></div>
-		<div name="" id="help_wish_content_3"  class="help_wish_content"></div>
+		<div id="help_wish_content0" class="help_wish_content"></div>
+		<div name="" id="help_wish_content1"  class="help_wish_content"></div>
+		<div name="" id="help_wish_content2"  class="help_wish_content"></div>
 
-		<img src="img/help_wish/submit.png" class="btn" onclick="goTo('p3')"/>
+		<img src="img/help_wish/submit.png" class="btn" onclick="sendHelpWish()"/>
 	</div>
 
 	<div class="frame" id="p3" style="justify-content: center;">
-		<div align="left" style="width: 80%; line-height: 90px;">
+		<div align="left" style="width: 80%; line-height: 90px; margin-top: 150px;">
 			<h2>提交成功</h2>
 			<span>这是TA的信息</span><br/>
 			<span>快去帮TA实现愿望吧</span>
@@ -93,7 +93,8 @@
 		</div>
 		
 		<img src="img/help_wish/backtofirstpage.png" class="btn" onclick="window.open('index.html','_self')"/>
-
+		
+		<div id="help_wish_chr" style="position: absolute; right: 0; top: 50px; width: 600px; height: 600px; background-size: 100% 100%; z-index: -1;box-shadow: rgba(85,97,95,0.7) 0 5px 5px 5px;transform: rotate(15deg) translateY(-80px);"></div>
 	</div>
 
 </body>

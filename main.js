@@ -2,9 +2,15 @@
 xhr对象：
 	x1：登录，提交用户名 - post - main
 	x2：获取用户信息 - get - main
-	x3：
+	x3：许愿请求 - post - wish
 	x4：抽奖请求 - post - lottery
 	x5：获取图鉴收藏进度 - get - lottery
+	x6：获取我的许愿 - get - favourite
+	x7：确认愿望完成 - post - favourite
+	x8：获取我的助愿 - get - favourite
+	x9：已实现放弃助愿 - post - favourite
+	x10：抽取愿望 - get - help_wish
+	x11：选择助愿 - post - help_wish
 */
 
 window.onload = function() {
@@ -28,7 +34,7 @@ function logIn() {
 	x1.open('post',baseurl + '/set_open_id', false);
 	x1.withCredentials = true;
 	x1.setRequestHeader('Content-Type','application/json');
-	x1.send(JSON.stringify({'openid':'lotteryer1'}));
+	x1.send(JSON.stringify({'openid':'lotteryer2'}));
 	x1.onload = () => {
 		if(x1.status !== 200) {
 			alert('登录请求出错，状态码为'+x1.status+'，出错信息为'+JSON.parse(x1.responseText).message);

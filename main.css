@@ -13,6 +13,7 @@ html, body, .frame {
 **/
 * {
 	outline: 0;
+	transition: all 0.2s;
 }
 body, textarea, input[type="text"] {
     font-family: Times New Roman, 黑体, 微软雅黑, STHeitiTC-Light;
@@ -28,6 +29,7 @@ h1 {text-align: center;}
 	display: none;
 	flex-direction: column;
 	align-items: center;
+	transition: none;
 }
 input[type="text"]:focus {
 	box-shadow: currentColor 0 0 5px 5px, currentColor 0 10px 5px;
@@ -108,11 +110,11 @@ input[type="text"] {
 }
 
 #wish_content {
-	margin-top: -80px;
+	margin-top: -80px; margin-bottom: 40px;
 	transform: translateX(25px);
 	background-image: url(img/wish/frame.png);
 	background-size: 100% 100%;
-	width: 694px; height: 45%;
+	width: 694px; height: calc(100% - 1100px);
 	padding: 150px 78px 0 78px;
 	background-color: transparent;
 	border: 0;
@@ -130,11 +132,13 @@ input[type="text"] {
 	position: fixed; right: 25px; top: 41px;
 }
 .help_wish_content {
-	width: 80%; height: 350px;
+	width: 85%; height: 350px;
 	background-color: transparent;
 	border-radius: 10px;
 	border: currentColor solid 9px;
 	overflow-y: scroll;
+	text-indent: 2em;
+	padding: 20px;
 }
 #wish_info {
 
@@ -168,8 +172,7 @@ input[type="text"] {
 }
 #select_paper_frame div {
 	width: 158px; height: 158px;
-	border: currentColor solid 2px;
-	background-color: currentColor;
+	background-color: rgba(78,92,89,0.5);
 	background-size: 100% 100%;
 	text-align: center;
 }
