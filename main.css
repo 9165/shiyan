@@ -132,13 +132,14 @@ input[type="text"] {
 	position: fixed; right: 25px; top: 41px;
 }
 .help_wish_content {
-	width: 85%; height: 350px;
+	width: 85%; height: 400px;
 	background-color: transparent;
 	border-radius: 10px;
 	border: currentColor solid 9px;
 	overflow-y: scroll;
 	text-indent: 2em;
 	padding: 20px;
+	margin-bottom: 30px;
 }
 #wish_info {
 
@@ -376,4 +377,13 @@ input[type="text"] {
 	0%{}
 	50%{transform:scale(1.1,1.1)}
 	100%{}
+}
+.refresh {
+	width: 80px; height: 80px;
+	background-size: 100% 100%;
+	background-image: url(img/wish_square/refresh.png);
+	display: inline; border: 0; 
+	transform: translate(50px, 15px);
+	border: currentColor solid 3px;
+	border-radius: 10px;
 }

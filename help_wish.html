@@ -37,6 +37,7 @@
 		</div>
 
 		<img alt="抽取愿望" src="img/help_wish/choosewish.png" style="position: absolute; bottom: 70px; left: calc(50% - 190px); z-index: 5;" class="btn" onclick="
+		getHelpWish();
 		$('#help_wish_bubbles').css('animation','bubbles 1 1s').css('animation-fill-mode',' forwards');
 		$('#help_wish_stars').css('animation','stars 2 0.5s');
 		$('#help_wish_chops').css('animation','chops 1 1s').css('animation-fill-mode',' forwards');
@@ -49,7 +50,7 @@
 
 	<div class="frame" id="p2">
 
-		<div class="top_bar">
+		<div class="top_bar" style="margin-bottom: 0px;">
 			<!-- <p>抽取愿望</p> -->
 			<div class="back_btn" onclick="goTo('p1')"></div>
 			<div class="help_btn" onclick="$('#h2').fadeIn();"></div>
@@ -71,28 +72,30 @@
             <div class="help_wish_chance chance">助愿:<span class="help_wish_chance_num"></span>次</div>
         </div>
 		
-		<p style="line-height: 0;">选择一个TA的愿望</p>
+		<p style="line-height: 0;">选择一个TA的愿望<img class="refresh" onclick="getHelpWish()"/></p>
 		<div id="help_wish_content0" class="help_wish_content"></div>
 		<div name="" id="help_wish_content1"  class="help_wish_content"></div>
 		<div name="" id="help_wish_content2"  class="help_wish_content"></div>
 
-		<img src="img/help_wish/submit.png" class="btn" onclick="sendHelpWish()"/>
+		<img src="img/help_wish/submit.png" class="btn" style="margin-top: 30px;" onclick="sendHelpWish()"/>
 	</div>
 
 	<div class="frame" id="p3" style="justify-content: center;">
-		<div align="left" style="width: 80%; line-height: 90px; margin-top: 150px;">
-			<h2>提交成功</h2>
-			<span>这是TA的信息</span><br/>
-			<span>快去帮TA实现愿望吧</span>
-			<div style="border: currentColor solid; border-width: 9px 0 9px 0; margin-top: 60px; line-height: 60px;">
-				<p>姓名：<span id="help_wish_name"></span></p>
-				<p>手机：<span id="help_wish_phone"></span></p>
-				<p>微信号：<span id="help_wish_wechat"></span></p>
+		<!-- <div class="center_div" style="display: flex;"> -->
+			<div align="left" style="width: 80%; line-height: 90px; margin-top: 150px;">
+				<h2>提交成功</h2>
+				<span>这是TA的信息</span><br/>
+				<span>快去帮TA实现愿望吧</span>
+				<div style="border: currentColor solid; border-width: 9px 0 9px 0; margin-top: 60px; line-height: 60px;">
+					<p>姓名：<span id="help_wish_name"></span></p>
+					<p>手机：<span id="help_wish_phone"></span></p>
+					<p>微信号：<span id="help_wish_wechat"></span></p>
+				</div>
+				<p style="font-size: 48px; line-height: 48px;">P.S.信息已保存到收藏夹，可随时查看哦</p>
 			</div>
-			<p style="font-size: 48px; line-height: 48px;">P.S.信息已保存到收藏夹，可随时查看哦</p>
-		</div>
+			<img src="img/help_wish/backtofirstpage.png" class="btn" onclick="window.open('index.html','_self')"/>
+		<!-- </div> -->
 		
-		<img src="img/help_wish/backtofirstpage.png" class="btn" onclick="window.open('index.html','_self')"/>
 		
 		<div id="help_wish_chr" style="position: absolute; right: 0; top: 50px; width: 600px; height: 600px; background-size: 100% 100%; z-index: -1;box-shadow: rgba(85,97,95,0.7) 0 5px 5px 5px;transform: rotate(15deg) translateY(-80px);"></div>
 	</div>

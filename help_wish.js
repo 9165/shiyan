@@ -1,6 +1,5 @@
 window.onload = function() {
 	logIn();
-	getHelpWish();
 }
 
 var getWishData;
@@ -54,14 +53,13 @@ function sendHelpWish() {
 		alert('我选个愿望哈，啊好……没选呢~')
 	}
 	else {
-		printWishPerson();
 		x11.open('post',baseurl + '/playground/others/wish', false);
 		x11.withCredentials = true;
 		x11.setRequestHeader('Content-Type','application/json');
-		x11.send(JSON.stringify({'id':chooseWishId}));
 		x11.onload = () => {
 			if(x11.status !== 200) {
 				alert('助愿请求出错，状态码为'+x11.status+'，出错信息为'+JSON.parse(x11.responseText).message);
+				return false;
 			}
 			else{
 				printWishPerson();
@@ -70,6 +68,7 @@ function sendHelpWish() {
 		x11.onerror = () => {
 			alert('登录请求出错，网络异常');
 		}
+		x11.send(JSON.stringify({'id':chooseWishId}));
 	}
 }
 

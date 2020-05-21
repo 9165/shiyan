@@ -120,7 +120,7 @@ function showLotteryChr(num) {
 	$('#lottery_chr_name').html(food[num]['name']);
 	$('#lottery_chr_frame').fadeIn();
 	$('#scale_div').fadeIn(2000);
-	$('.lottery_chance_num').html(info.lottery - 1);
+	$('.lottery_chance_num').html($('.lottery_chance_num').html() - 1);
 }
 
 

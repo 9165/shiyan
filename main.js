@@ -13,6 +13,9 @@ xhr对象：
 	x11：选择助愿 - post - help_wish
 */
 
+var user = 'lotteryer5';
+
+
 window.onload = function() {
 	logIn();
 }	//如果有的独立js不需要写window.onload的话就执行这个，如果独立js需要写window.onload的话就执行他们的window.onload（需要包含这个window.onload的所有信息），前提是把他们的<script>引用放在下面
@@ -30,11 +33,11 @@ var x1 = new XMLHttpRequest();	//登录，提交用户名
 var x2 = new XMLHttpRequest();	//获取用户信息
 
 function logIn() {
-	
+
 	x1.open('post',baseurl + '/set_open_id', false);
 	x1.withCredentials = true;
 	x1.setRequestHeader('Content-Type','application/json');
-	x1.send(JSON.stringify({'openid':'lotteryer2'}));
+	x1.send(JSON.stringify({'openid':user}));
 	x1.onload = () => {
 		if(x1.status !== 200) {
 			alert('登录请求出错，状态码为'+x1.status+'，出错信息为'+JSON.parse(x1.responseText).message);
