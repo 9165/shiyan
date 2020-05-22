@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="main.css">
     <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="wish_square.js"></script>
 </head>
 
 <body>
@@ -41,38 +42,15 @@
 			<div id="btn_make_post" onclick="goTo('p2')"></div>
 		</div>
 		
-		<div class="post_content_frame">
+		<div id="post_content_frame" class="post_content_frame">
 
-			<div class="post_preview">
+			<!-- <div class="post_preview">
 				<div class="post_preview_user">用户xxx</div>
 				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
 				<img class="post_preview_image"/>
 				<img class="post_preview_image"/>
-			</div>
-			<div class="post_preview">
-				<div class="post_preview_user">用户xxx</div>
-				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
-			</div>
-			<div class="post_preview">
-				<div class="post_preview_user">用户xxx</div>
-				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
-			</div>
-			<div class="post_preview">
-				<div class="post_preview_user">用户xxx</div>
-				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
-			</div>
-			<div class="post_preview">
-				<div class="post_preview_user">用户xxx</div>
-				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
-			</div>
-			<div class="post_preview">
-				<div class="post_preview_user">用户xxx</div>
-				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
-			</div>
-			<div class="post_preview">
-				<div class="post_preview_user">用户xxx</div>
-				<div class="post_preview_text">如果让你重新来过，你会不会爱我？爱情让人拥有快乐</div>
-			</div>
+			</div> -->
+			
 			
 		</div>
 
@@ -100,8 +78,21 @@
 
 			<div id="btn_post_add_image" class="post_edit_image">＋</div>
 		</div>
-
 	</div>
+	
+	<div id="p3" class="frame" title="初始设置昵称">
+		<div  style="width: 80%; margin-top: 50%;">
+			<p style="font-size: 70px;">初来乍到，先设置一个愿望广场发帖昵称吧！</p>
+			<input type="text" id="square_name" style="width: 100%;font-size: 100px;border: 0;background-color: transparent;border-bottom: currentColor solid 10px;text-align: center;margin: 70px 0;" onkeyup="if(event.keyCode==13){nameValidity();}" />
+			<p align="center">注：不能留空或只含空格</p>
+			<p align="center"><img id="btn_check" src="img/wish/yes.png" class="btn" onclick="nameValidity();"/></p>
+		</div>
+	</div>
+	
+	<div id="img_zoom_frame" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); display: none; transition: none; z-index:2; overflow:scroll; align-items: center; justify-content: center;" onclick="$('#img_zoom_frame').fadeOut();">
+			<img src="" alt="" id="img_zoom" onclick="$('#img_zoom_frame').fadeOut();" style="transform: scale(3,3); max-width: 33%; max-height: 33%;">
+	</div>
+	
 </body>
 
 </html>

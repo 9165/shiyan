@@ -31,13 +31,15 @@
      align-self: flex-start;
      border: currentColor solid 8px;
      box-sizing: border-box;
+     display: none; transition: 0;
      border-radius: 15px;
  }
  
- .fav_wish_content {
-     width: calc(80% - 40px); height: 100%;
+ .fav_content {
+     width: calc(80% - 40px); height: calc(100% - 50px);
      padding: 20px;
      text-indent: 2em;
+     overflow-y: scroll;
  }
  
  .wishDetail {
@@ -45,7 +47,7 @@
      height: 100%;
      text-align: center;
  }
- .fav_wish_content2 {
+ .fav_content2 {
      width: 80%; height: 40%;
      padding: 30px;
      border: #4e5c59 solid 6px;

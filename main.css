@@ -185,9 +185,9 @@ input[type="text"] {
 /*愿望广场元素*/
 .post_preview {	/*帖子预览块*/
 	width: calc(100% - 100px);
-	padding: 60px 50px 90px 50px;
+	padding: 50px;
 	text-align: left;
-	border-bottom: currentColor solid 3px;
+	border-bottom: rgba(85,97,95,0.3) solid 3px;
 }
 .top_bar2 {
 	width: 100%;
@@ -233,13 +233,14 @@ input[type="text"] {
 	margin-bottom: 70px;
 }
 .post_preview_text, .post_edit_text {
-	font-size: 45px;
+	font-size: 50px;
 	margin-left: 63px;
 }
 .post_preview_image, .post_edit_image {
 	background-color: #d2ceb9;
 	margin-left: 50px; margin-bottom: 0;
 	width: 200px; height: 200px;
+	border: currentColor solid 5px;
 }
 .post_preview_image:first-of-type {
 	margin-left: 64px;

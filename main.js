@@ -11,9 +11,12 @@ xhr对象：
 	x9：已实现放弃助愿 - post - favourite
 	x10：抽取愿望 - get - help_wish
 	x11：选择助愿 - post - help_wish
+	x12：设置愿望广场昵称 - post - wish_square
+	x13：获取帖子 - get - wish_square
+	x14：发帖 - post - wish_square
 */
 
-var user = 'lotteryer5';
+var user = 'lotteryer6';
 
 
 window.onload = function() {
@@ -37,7 +40,6 @@ function logIn() {
 	x1.open('post',baseurl + '/set_open_id', false);
 	x1.withCredentials = true;
 	x1.setRequestHeader('Content-Type','application/json');
-	x1.send(JSON.stringify({'openid':user}));
 	x1.onload = () => {
 		if(x1.status !== 200) {
 			alert('登录请求出错，状态码为'+x1.status+'，出错信息为'+JSON.parse(x1.responseText).message);
@@ -46,8 +48,8 @@ function logIn() {
 	x1.onerror = () => {
 		alert('登录请求出错，网络异常');
 	}
+	x1.send(JSON.stringify({'openid':user}));
 
-	
 	x2.open('get',baseurl + '/info');
 	x2.withCredentials = true;
 

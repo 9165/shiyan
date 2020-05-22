@@ -66,7 +66,7 @@ function sendHelpWish() {
 			}
 		}
 		x11.onerror = () => {
-			alert('登录请求出错，网络异常');
+			alert('助愿请求出错，网络异常');
 		}
 		x11.send(JSON.stringify({'id':chooseWishId}));
 	}

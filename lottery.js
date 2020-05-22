@@ -25,7 +25,7 @@ function getIlluData() {
 		printIlluPreview();
 	};
 	x5.onerror = () => {	//检测网络异常
-		alert('获取用户数据请求出错，网络异常');
+		alert('获取图鉴收集情况请求出错，网络异常');
 	}
 	x5.send();
 }
@@ -109,7 +109,7 @@ function lottery() {
 		}
 	}
 	x4.onerror = () => {
-		alert('登录请求出错，网络异常');
+		alert('抽奖请求出错，网络异常');
 	}
 	x4.send();
 }
