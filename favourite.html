@@ -7,7 +7,7 @@
     <title>食愿记 - 许愿</title>
     <link rel="stylesheet" href="favourite_style.css">
     <link rel="stylesheet" href="main.css">
-    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="favourite.js"></script>
 </head>
@@ -34,6 +34,7 @@
             <div class="btn btnActive" style="float: left;">我的助愿</div>
             <div class="btn" style="float: right;" onclick="goTo('p2')">我的许愿</div>
         </div>
+
         <div class="main">
             <div id="fav_help_wish0" class="detail">
                 <div class="fav_content" style="float: left;">我的助愿-愿望文案</div>
@@ -110,6 +111,8 @@
             </div>
             <div class="help_close" onclick="$(this).parent().fadeOut();"></div>
         </div>
+
+        <img id="fav_help_wish_chr" src="" style="width: 300px;height: 300px;position: absolute;right: 100px;top: 200px;background-color: white;z-index: 2;transform: rotate(-5deg);box-shadow: rgba(0,0,0,0.3) 0 10px 10px 5px;" alt="">
 
         <div style="width:855px; line-height: 40px; margin-bottom:30px;">
             <p>署名：<span class="fav_wish_name"></span></p>

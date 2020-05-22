@@ -79,7 +79,7 @@ function printHelpWishDetail(num) {
 
 	$('#btn_finish_help_wish').attr('onclick','fogHelpWish('+num+','+myHelpWish[num]['id']+',1)');
 	$('#btn_giveup_help_wish').attr('onclick','fogHelpWish('+num+','+myHelpWish[num]['id']+',0)');
-
+	$('#fav_help_wish_chr').attr('src','img/wish/paper/paper'+myHelpWish[num]['paper']+'.png')
 	goTo('p3');
 }
 
@@ -142,7 +142,7 @@ function confirmFinish(num,id) {
 		return false;
 	}
 
-	x7.open('post',baseurl + '/collection/others/wish', false);
+	x7.open('post',baseurl + '/collection/player/wish', false);
 	x7.withCredentials = true;
 	x7.setRequestHeader('Content-Type','application/json');
 	x7.onload = () => {
