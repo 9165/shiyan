@@ -21,7 +21,7 @@ function getMyWish() {
 		printMyWish();
 	};
 	x6.onerror = () => {	//检测网络异常
-		alert('获取许愿记录出错，网络异常');
+		newAlert('获取许愿记录出错，网络异常');
 	}
 	x6.send();
 }
@@ -47,7 +47,7 @@ function getMyHelpWish() {
 		printMyHelpWish();
 	};
 	x8.onerror = () => {	//检测网络异常
-		alert('获取助愿记录出错，网络异常');
+		newAlert('获取助愿记录出错，网络异常');
 	}
 	x8.send();
 }
@@ -119,21 +119,21 @@ function fogHelpWish(num,id,fog) {	//fog - finish or give up
 			        errMessage='愿望未被领取或已确认实现';
 			        break;
 			} 
-			alert('提交助愿结果请求出错，状态码为'+x9.status+'，出错信息为'+errMessage);
+			newAlert('提交助愿结果请求出错，状态码为'+x9.status+'，出错信息为'+errMessage);
 		}
 		else{
 			if(fog==1) {
-				alert('确认实现成功\n\\撒花\/\\撒花\/');
+				newAlert('确认实现成功\n\\撒花\/\\撒花\/');
 			}
 			else{
-				alert('确认放弃成功。不要灰心，继续帮助其他愿望吧');
+				newAlert('确认放弃成功。不要灰心，继续帮助其他愿望吧');
 			}
 			$('#fav_help_wish'+num).css('display','none');
 			goTo('p1');
 		}
 	}
 	x9.onerror = () => {
-		alert('完成或放弃助愿请求出错，网络异常');
+		newAlert('完成或放弃助愿请求出错，网络异常');
 	}
 	x9.send(JSON.stringify({'id':id,'status':fog}));
 }
@@ -162,15 +162,15 @@ function confirmFinish(num,id) {
 			        errMessage='要先等到助愿者先确认实现愿望后才能正式结案~';
 			        break;
 			} 
-			alert('提交许愿结果请求出错，状态码为'+x7.status+'，出错信息为'+errMessage);
+			newAlert('提交许愿结果请求出错，状态码为'+x7.status+'，出错信息为'+errMessage);
 		}
 		else{
-			alert('恭喜愿望实现啦~');
+			newAlert('恭喜愿望实现啦~');
 			$('#fav_wish'+num).css('display','none');
 		}
 	}
 	x7.onerror = () => {
-		alert('确认愿望实现请求出错，网络异常');
+		newAlert('确认愿望实现请求出错，网络异常');
 	}
 	x7.send(JSON.stringify({'id':id}));
 }

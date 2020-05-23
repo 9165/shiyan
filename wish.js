@@ -29,18 +29,18 @@ function collectData() {	//内容-内容-()-检查-发送。完成内容后，�
 	}
 	else {wishWechat = 'null'}
 
-	var alertWord='';
+	var newAlertWord='';
 
-	if(wishContent.replace(/ /g, "") == '') {alertWord+='信的内容不得为空或只含空格\n'}
-	if(wishName.replace(/ /g, "") == '') {alertWord+='署名不得为空或只含空格\n'}
-	if(wishPhone == '10000000000' && wishWechat == 'null') {alertWord+='手机号和微信号至少填写一项\n'}
+	if(wishContent.replace(/ /g, "") == '') {newAlertWord+='信的内容不得为空或只含空格\n'}
+	if(wishName.replace(/ /g, "") == '') {newAlertWord+='署名不得为空或只含空格\n'}
+	if(wishPhone == '10000000000' && wishWechat == 'null') {newAlertWord+='手机号和微信号至少填写一项\n'}
 	if(wishPhone!='10000000000') {
 		if(!(/^1\d{10}$/.test(wishPhone))){
-        alertWord+='若填写手机号，则手机号必须为1开头、11位\n';
+        newAlertWord+='若填写手机号，则手机号必须为1开头、11位\n';
     	}
 	}
-	if(alertWord!='') {
-		alert(alertWord);
+	if(newAlertWord!='') {
+		newAlert(newAlertWord);
 	}
 	else {
 		printData();
@@ -74,14 +74,14 @@ function sendWish() {
 
 	x3.onload = () => {
 		if(x3.status !== 200) {
-			alert('许愿请求出错，状态码为'+x3.status+'，出错信息为'+JSON.parse(x3.responseText).message);
+			newAlert('许愿请求出错，状态码为'+x3.status+'，出错信息为'+JSON.parse(x3.responseText).message);
 		}
 		else {
 			goTo('p4');
 		}
 	}
 	x3.onerror = () => {
-		alert('登录请求出错，网络异常');
+		newAlert('登录请求出错，网络异常');
 	}
 
 	x3.send(JSON.stringify({"title": "","content": wishContent,"paper": wishPaper,"name": wishName,"tel": wishPhone,"wechat": wishWechat}));

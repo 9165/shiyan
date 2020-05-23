@@ -42,11 +42,11 @@ function logIn() {
 	x1.setRequestHeader('Content-Type','application/json');
 	x1.onload = () => {
 		if(x1.status !== 200) {
-			if(x1.status === 500) {
-				alert(500);
+			if(x1.status == 500) {
+				newAlert(500);
 			}
 			else {
-				alert('登录请求出错，状态码为'+x1.status+'，出错信息为'+JSON.parse(x1.responseText).message);
+				newAlert('登录请求出错，状态码为'+x1.status+'，出错信息为'+JSON.parse(x1.responseText).message);
 			}
 		}
 		else {
@@ -54,7 +54,7 @@ function logIn() {
 		}
 	}
 	x1.onerror = () => {
-		alert('登录请求出错，网络异常');
+		newAlert('登录请求出错，网络异常');
 	}
 	x1.send(JSON.stringify({'openid':user}));
 }
@@ -67,7 +67,7 @@ function getInfo() {
 		setInfo();
 	};
 	x2.onerror = () => {	//检测网络异常
-		alert('获取用户数据请求出错，网络异常');
+		newAlert('获取用户数据请求出错，网络异常');
 	}
 	x2.send();
 }
@@ -82,7 +82,15 @@ function setInfo() {
 		$('.post_chance_num').html(info.post);
 	}
 	else {	//检测其他异常状态码
-		alert('获取用户数据请求出错，状态码为'+x2.status+'，出错信息为'+JSON.parse(x2.responseText).message);
+		switch(x2.status){
+			case 401:
+				window.location.href="https://hemc.100steps.net/2017/wechat/Home/Index/index?state=" + encodeURIComponent(window.location.href);
+			break;
+
+			default:
+				newAlert('获取用户数据请求出错，状态码为'+x2.status+'，出错信息为'+JSON.parse(x2.responseText).message);
+		}
+		
 	}
 }
 
@@ -90,4 +98,14 @@ function enterTo(id) {
 	if(event.keyCode == 13) {
 		document.getElementById(id).select();
 	}
+}
+
+function newAlert(text) {
+	var newSpace = document.createTextNode(text);
+	var newAlertFrame = document.createElement('div');
+	newAlertFrame.setAttribute('class','new_alert');
+	newAlertFrame.setAttribute('onclick','$(this).fadeOut("slow").remove();');
+	newAlertFrame.appendChild(newSpace);
+	document.getElementsByTagName('body')[0].appendChild(newAlertFrame);
+	$('.new_alert').fadeIn('fast');
 }

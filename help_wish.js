@@ -17,7 +17,7 @@ function getHelpWish() {
 		printHelpWish();
 	};
 	x10.onerror = () => {	//检测网络异常
-		alert('获取用户数据请求出错，网络异常');
+		newAlert('获取用户数据请求出错，网络异常');
 	}
 	x10.send();	
 }
@@ -50,7 +50,7 @@ var x11 = new XMLHttpRequest();
 
 function sendHelpWish() {
 	if(chooseWishNum==-1) {
-		alert('我选个愿望哈，啊好……没选呢~')
+		newAlert('我选个愿望哈，啊好……没选呢~')
 	}
 	else {
 		x11.open('post',baseurl + '/playground/others/wish', false);
@@ -58,7 +58,7 @@ function sendHelpWish() {
 		x11.setRequestHeader('Content-Type','application/json');
 		x11.onload = () => {
 			if(x11.status !== 200) {
-				alert('助愿请求出错，状态码为'+x11.status+'，出错信息为'+JSON.parse(x11.responseText).message);
+				newAlert('助愿请求出错，状态码为'+x11.status+'，出错信息为'+JSON.parse(x11.responseText).message);
 				return false;
 			}
 			else{
@@ -66,7 +66,7 @@ function sendHelpWish() {
 			}
 		}
 		x11.onerror = () => {
-			alert('助愿请求出错，网络异常');
+			newAlert('助愿请求出错，网络异常');
 		}
 		x11.send(JSON.stringify({'id':chooseWishId}));
 	}

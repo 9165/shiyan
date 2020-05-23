@@ -9,7 +9,7 @@ window.onload = function() {
 	x2.onload = () => {
 		setInfo();
 		if(parseInt(info.lottery)==0) {
-			$('#lottery_btn').css('filter','grayscale(100%)').attr('onclick','alert("好像抽奖次数不够了呢qwq！！")');
+			$('#lottery_btn').css('filter','grayscale(100%)').attr('onclick','newAlert("好像抽奖次数不够了呢qwq！！")');
 		}
 		getIlluData(true);
 	}
@@ -32,14 +32,14 @@ function getIlluData(check) {
 				}
 			}
 			if(isCompleted) {
-				alert('你已经集齐了所有碎片~');
+				newAlert('你已经集齐了所有碎片~');
 				$('#p2 .back_btn').attr('onclick',"window.open('index.html','_self')");
 				goTo('p2');
 			}			
 		}
 	};
 	x5.onerror = () => {	//检测网络异常
-		alert('获取图鉴收集情况请求出错，网络异常');
+		newAlert('获取图鉴收集情况请求出错，网络异常');
 	}
 	x5.send();
 }
@@ -116,14 +116,14 @@ function lottery() {
 			else if(x4.status == 409) {
 				err = '图鉴已经集齐了~'
 			}
-			alert('抽奖请求出错，状态码为'+x4.status+'，出错信息为'+err);
+			newAlert('抽奖请求出错，状态码为'+x4.status+'，出错信息为'+err);
 		}
 		else {
 			showLotteryChr(JSON.parse(x4.responseText)['section']);
 		}
 	}
 	x4.onerror = () => {
-		alert('抽奖请求出错，网络异常');
+		newAlert('抽奖请求出错，网络异常');
 	}
 	x4.send();
 }

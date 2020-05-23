@@ -73,7 +73,7 @@ input[type="text"] {
 	width: 100%; height: 210px;
 	text-align: center;
 }
-.center_div, .help_window {
+.center_div, .help_window, .new_alert {
 	position: fixed; left: 50%; top: 50%;
 	transform: translate(-50%,-50%);
 }
@@ -226,8 +226,6 @@ input[type="text"] {
 	border: 0;
 }
 .post_content_frame::after {
-	display: inline-block;
-	content: '没有更多了';
 	height: 150px;
 }
 .post_preview > * {
@@ -391,4 +389,15 @@ input[type="text"] {
 	transform: translate(50px, 15px);
 	border: currentColor solid 3px;
 	border-radius: 10px;
+}
+.new_alert {
+	font-size: 70px; background-color: rgba(255,255,255,0.9); box-shadow: rgba(85,97,95,.5) 0 5px 5px; width: calc(80% - 60px); padding: 30px; border-radius: 20px; text-align: center; word-break: break-all; z-index: 10;
+	display: none;
+	transition: none;
+}
+.new_alert::after {
+	content:'点击继续';
+	display: block;
+	font-size: 50px;
+	margin-top: 50px;
 }
