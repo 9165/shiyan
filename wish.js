@@ -74,7 +74,12 @@ function sendWish() {
 
 	x3.onload = () => {
 		if(x3.status !== 200) {
-			newAlert('许愿请求出错，状态码为'+x3.status+'，出错信息为'+JSON.parse(x3.responseText).message);
+			if (x3.status == 500){
+				newAlert('服务器出错')
+			}else{
+				newAlert(JSON.parse(x3.responseText).message);
+			}
+			// newAlert('许愿请求出错，状态码为'+x3.status+'，出错信息为'+JSON.parse(x3.responseText).message);
 		}
 		else {
 			goTo('p4');

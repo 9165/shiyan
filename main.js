@@ -19,94 +19,95 @@ xhr对象：
 
 // var user = 'lotteryer6';
 
-
-window.onload = function() {
-	logIn();
-}	//如果有的独立js不需要写window.onload的话就执行这个，如果独立js需要写window.onload的话就执行他们的window.onload（需要包含这个window.onload的所有信息），前提是把他们的<script>引用放在下面
+// window.onload = function() {
+// 	logIn();
+// }	//如果有的独立js不需要写window.onload的话就执行这个，如果独立js需要写window.onload的话就执行他们的window.onload（需要包含这个window.onload的所有信息），前提是把他们的<script>引用放在下面
 
 function goTo(page) {
-	$('.frame').fadeOut();
-	$('#'+page).fadeIn();
-	$('#'+page).css('display','flex');
+  $(".frame").fadeOut();
+  $("#" + page).fadeIn();
+  $("#" + page).css("display", "flex");
 }
 
-var baseurl = 'https://zekaio.cn/2020/food_wish/api';
+var baseurl = "https://hemc.100steps.net/2020/food_wish/api";
 var info = new Object();
 
-var x1 = new XMLHttpRequest();	//登录，提交用户名 
-var x2 = new XMLHttpRequest();	//获取用户信息
+var x2 = new XMLHttpRequest(); //获取用户信息
 
-function logIn() {
-	var user = prompt('输入一个名字，若之前未输入过则视为新注册；这个框每进一次首页弹一次；默认为lotteryer1抽奖100次；按取消会出错','lotteryer1');
-	x1.open('post',baseurl + '/set_open_id', false);
-	x1.withCredentials = true;
-	x1.setRequestHeader('Content-Type','application/json');
-	x1.onload = () => {
-		if(x1.status !== 200) {
-			if(x1.status == 500) {
-				newAlert(500);
-			}
-			else {
-				newAlert('登录请求出错，状态码为'+x1.status+'，出错信息为'+JSON.parse(x1.responseText).message);
-			}
-		}
-		else {
-			getInfo();
-		}
-	}
-	x1.onerror = () => {
-		newAlert('登录请求出错，网络异常');
-	}
-	x1.send(JSON.stringify({'openid':user}));
-}
+// function logIn() {
+// 	var user = prompt('输入一个名字，若之前未输入过则视为新注册；这个框每进一次首页弹一次；默认为lotteryer1抽奖100次；按取消会出错','lotteryer1');
+// 	x1.open('post',baseurl + '/set_open_id', false);
+// 	x1.withCredentials = true;
+// 	x1.setRequestHeader('Content-Type','application/json');
+// 	x1.onload = () => {
+// 		if(x1.status !== 200) {
+// 			if(x1.status == 500) {
+// 				newAlert(500);
+// 			}
+// 			else {
+// 				newAlert('登录请求出错，状态码为'+x1.status+'，出错信息为'+JSON.parse(x1.responseText).message);
+// 			}
+// 		}
+// 		else {
+// 			getInfo();
+// 		}
+// 	}
+// 	x1.onerror = () => {
+// 		newAlert('登录请求出错，网络异常');
+// 	}
+// 	x1.send(JSON.stringify({'openid':user}));
+// }
+x2.open("get", baseurl + "/info");
+x2.withCredentials = true;
+
+x2.onload = () => {
+  //同理如果有的独立js不需要独立x2.onload的话就执行这个，需要的话就独立写一个
+  setInfo();
+};
+x2.onerror = () => {
+  //检测网络异常
+  newAlert("获取用户数据请求出错，网络异常");
+};
 
 function getInfo() {
-	x2.open('get',baseurl + '/info');
-	x2.withCredentials = true;
-
-	x2.onload = () => {	//同理如果有的独立js不需要独立x2.onload的话就执行这个，需要的话就独立写一个
-		setInfo();
-	};
-	x2.onerror = () => {	//检测网络异常
-		newAlert('获取用户数据请求出错，网络异常');
-	}
-	x2.send();
+  x2.send();
 }
 
 function setInfo() {
-	if(x2.status === 200) {
-		info = JSON.parse(x2.responseText);
-		//导入用户信息到上方的计数栏
-		$('.wish_chance_num').html(info.wish);
-		$('.help_wish_chance_num').html(info.help);
-		$('.lottery_chance_num').html(info.lottery);
-		$('.post_chance_num').html(info.post);
-	}
-	else {	//检测其他异常状态码
-		switch(x2.status){
-			case 401:
-				window.location.href="https://hemc.100steps.net/2017/wechat/Home/Index/index?state=" + encodeURIComponent(window.location.href);
-			break;
-
-			default:
-				newAlert('获取用户数据请求出错，状态码为'+x2.status+'，出错信息为'+JSON.parse(x2.responseText).message);
-		}
-		
-	}
+  if (x2.status === 200) {
+    info = JSON.parse(x2.responseText);
+    //导入用户信息到上方的计数栏
+    $(".wish_chance_num").html(info.wish);
+    $(".help_wish_chance_num").html(info.help);
+    $(".lottery_chance_num").html(info.lottery);
+    $(".post_chance_num").html(info.post);
+  } else {
+    //检测其他异常状态码
+    switch (x2.status) {
+      case 401:
+        window.location.href =
+          "https://hemc.100steps.net/2017/wechat/Home/Index/index?state=" +
+          encodeURIComponent(window.location.href);
+        break;
+      default:
+        newAlert(JSON.parse(x2.responseText).message);
+        break;
+    }
+  }
 }
 
 function enterTo(id) {
-	if(event.keyCode == 13) {
-		document.getElementById(id).select();
-	}
+  if (event.keyCode == 13) {
+    document.getElementById(id).select();
+  }
 }
 
 function newAlert(text) {
-	var newSpace = document.createTextNode(text);
-	var newAlertFrame = document.createElement('div');
-	newAlertFrame.setAttribute('class','new_alert');
-	newAlertFrame.setAttribute('onclick','$(this).fadeOut("slow").remove();');
-	newAlertFrame.appendChild(newSpace);
-	document.getElementsByTagName('body')[0].appendChild(newAlertFrame);
-	$('.new_alert').fadeIn('fast');
+  var newSpace = document.createTextNode(text);
+  var newAlertFrame = document.createElement("div");
+  newAlertFrame.setAttribute("class", "new_alert");
+  newAlertFrame.setAttribute("onclick", '$(this).fadeOut("slow").remove();');
+  newAlertFrame.appendChild(newSpace);
+  document.getElementsByTagName("body")[0].appendChild(newAlertFrame);
+  $(".new_alert").fadeIn("fast");
 }

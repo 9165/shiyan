@@ -239,10 +239,19 @@ input[type="text"] {
 	font-size: 0.7em;
 }
 .post_preview_image, .post_edit_image {
-	background-color: #d2ceb9;
+	/* background-color: #d2ceb9; */
 	margin-left: 50px; margin-bottom: 0;
 	width: 200px; height: 200px;
 	border: currentColor solid 5px;
+}
+
+.post_img{
+	width: 200px; height: 200px;
+	user-select: none;
+	-webkit-user-select: none;
+	/* float: right; */
+	position: absolute;
+	z-index: -1;
 }
 .post_preview_image:first-of-type {
 	margin-left: 64px;
@@ -260,6 +269,9 @@ input[type="text"] {
 	width: 47px; height: 47px;
 	background-image:url(img/wish_square/delete.png); 
 	float: right;
+}
+.hidden{
+	display: none;
 }
 #btn_post_add_image {
 	text-align: center;

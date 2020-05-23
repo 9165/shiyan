@@ -4,7 +4,6 @@ var x4 = new XMLHttpRequest();	//抽奖请求
 var x15 = new XMLHttpRequest(); //已集齐碎片 - post - wish_square
 
 window.onload = function() {
-	getInfo();
 	//检测抽奖次数，0次则把图标变灰
 	x2.onload = () => {
 		setInfo();
@@ -13,6 +12,7 @@ window.onload = function() {
 		}
 		getIlluData(true);
 	}
+	getInfo();
 }
 
 // 获取图鉴收集情况
@@ -112,14 +112,19 @@ function lottery() {
 
 	x4.onload = () => {
 		if(x4.status !== 200) {
-			var err = '';
-			if(x4.status == 406) {
-				err = '抽奖次数为0';
+			// var err = '';
+			// if(x4.status == 406) {
+			// 	err = '抽奖次数为0';
+			// }
+			// else if(x4.status == 409) {
+			// 	err = '图鉴已经集齐了~'
+			// }
+			if (x4.status == 500){
+				newAlert('服务器出错')
+			}else{
+				newAlert(JSON.parse(x4.responseText).message);
 			}
-			else if(x4.status == 409) {
-				err = '图鉴已经集齐了~'
-			}
-			newAlert('抽奖请求出错，状态码为'+x4.status+'，出错信息为'+err);
+			// newAlert('抽奖请求出错，状态码为'+x4.status+'，出错信息为'+err);
 		}
 		else {
 			showLotteryChr(JSON.parse(x4.responseText)['section']);
@@ -164,7 +169,12 @@ function sendLotteryInfo() {
 	x15.setRequestHeader('Content-Type','application/json');
 	x15.onload = () => {
 		if(x15.status !== 200) {
-			newAlert('提交信息请求出错，状态码为'+x15.status+'，出错信息为'+JSON.parse(x15.responseText).message);
+			if (x15.status == 500){
+				newAlert('服务器出错')
+			}else{
+				newAlert(JSON.parse(x15.responseText).message);
+			}
+			// newAlert('提交信息请求出错，状态码为'+x15.status+'，出错信息为'+JSON.parse(x15.responseText).message);
 		}
 		else {
 			newAlert('提交成功，恭喜完成集图鉴活动');

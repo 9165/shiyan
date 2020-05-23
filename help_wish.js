@@ -58,7 +58,12 @@ function sendHelpWish() {
 		x11.setRequestHeader('Content-Type','application/json');
 		x11.onload = () => {
 			if(x11.status !== 200) {
-				newAlert('助愿请求出错，状态码为'+x11.status+'，出错信息为'+JSON.parse(x11.responseText).message);
+				if (x11.status == 500){
+					newAlert('服务器出错')
+				}else{
+					newAlert(JSON.parse(x11.responseText).message);
+				}
+				// newAlert('助愿请求出错，状态码为'+x11.status+'，出错信息为'+JSON.parse(x11.responseText).message);
 				return false;
 			}
 			else{

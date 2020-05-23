@@ -1,5 +1,5 @@
 window.onload = function() {
-	logIn();
+	// logIn();
 	//检测许愿助愿次数，0次则把图标变灰
 	x2.onload = () => {
 		setInfo();
@@ -10,5 +10,6 @@ window.onload = function() {
 			$('#btn_help_wish').css('filter','grayscale(100%)').attr('onclick','newAlert("好像助愿次数不够了呢qwq！！")');
 		}
 	}
+	getInfo();
 }
 
