@@ -115,9 +115,14 @@
 	</div>
 	
 	<div id="p4" class="frame">
-		
-		<div style="height: 200px;"></div>
+		<div class="top_bar" style="margin-bottom: -200px;">
+			<!-- <p>抽取愿望</p> -->
+			<div class="back_btn" onclick="newAlert('你选择了暂时返回图鉴，等等再填写信息；下次进入图鉴时仍会邀请填写信息，直到已填写'); goTo('p2');"></div>
+		</div>
 
+		<div style="height: 200px;"></div>
+		<h1 style="line-height: 0px;">恭喜集齐图鉴</h1>
+		<p style="text-indent: 2em; padding: 30px;">请填写你的信息，我们会将奖品送到你的手上哦</p>
 		<table id="wish_info" style="margin-bottom: 0;">
 			<tr>
 				<td>姓名</td>
@@ -133,9 +138,9 @@
 			</tr>
 		</table>
 
-		<p style="margin:0 40 90px 40px; font-size: 50px;">梯仔答应你，绝不乱告诉别人你的信息</p>
+		<p style="margin:0 40 90px 40px; font-size: 50px;">请谨慎填写哦，不能重复提交哦~<br/>梯仔答应你，绝不乱告诉别人你的信息</p>
 
-		<img src="img/wish/yes.png" class="btn" onclick="goTo('p3')"/>
+		<img src="img/wish/yes.png" class="btn" onclick="sendLotteryInfo();"/>
 
 	</div>
 	

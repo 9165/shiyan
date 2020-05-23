@@ -11,6 +11,32 @@ window.onload = function() {
 		}
 	};
 	getFeed(true);
+
+	$('#post_content_frame').on('scroll',function(){
+        var scrollHeight = this.scrollHeight;
+        var scrollTop = this.scrollTop;
+        var clientHeight = this.clientHeight;
+ 
+        // 注意：下面这种写法是无效的：
+        // var clientHeight = $('要监听的对象').clientHeight;
+ 
+        
+      	if(scrollTop == 0){
+      		refresh();
+      	}
+
+		// if(clientHeight == scrollHeight){
+		// alert('下拉到底了');
+		// }
+
+		// $('#post_content_frame').on('scroll',function(){
+  //   		if ($('#post_content_frame').scrollTop() >= (1000-200)) {
+  //       		alert('滚动到底部了');
+  //   		}
+		// });
+    });
+
+    $('.frame').css('height',window.innerHeight+'px');
 }
 var x12 = new XMLHttpRequest() //设置愿望广场昵称 - post - wish_square
 var x13 = new XMLHttpRequest() //获取帖子 - get - wish_square
@@ -59,7 +85,7 @@ function getFeed(isFirst) {
 	x13.withCredentials = true;
 	x13.onload = () => {
 		feedSource = JSON.parse(x13.responseText).posts;
-		printFeed();
+		printFeed(isFirst);
 	};
 	x13.onerror = () => {	//检测网络异常
 		newAlert('获取帖子请求出错，网络异常');
@@ -69,7 +95,7 @@ function getFeed(isFirst) {
 
 var curLastNum = 0;
 
-function printFeed() {
+function printFeed(isFirst) {
 	if(lastPostId == 1) {
 		newAlert('已经到底了~');
 		return false;
@@ -94,6 +120,10 @@ function printFeed() {
 	for(i=0; i<=feedSource.length-1; i++) {
 		$('#post'+(document.getElementsByClassName('post_preview').length-feedSource.length+i)+' .post_preview_user').text(feedSource[i]['name']);
 		$('#post'+(document.getElementsByClassName('post_preview').length-feedSource.length+i)+' .post_preview_text').text(feedSource[i]['content']);
+	}
+
+	if(isFirst) {
+		$('#post_content_frame').scrollTop(1); //这样上拉有效果
 	}
 }
 
@@ -121,6 +151,7 @@ function sendPost() {
 		else {
 			newAlert('发送成功');
 			getFeed(false);
+			refresh();
 			goTo('p1');
 		}
 	}
@@ -128,4 +159,15 @@ function sendPost() {
 		newAlert('设置昵称请求出错，网络异常');
 	}
 	x14.send(JSON.stringify({"content":postText}));
+}
+
+function refresh() {
+	$('.refresh').css('animation','freedom_dive 1 0.5s');
+	setTimeout(function(){
+		$('.refresh').css('animation','none');
+	},500);
+
+	lastPostId = 0;
+	$('#post_content_frame').empty();
+	getFeed(true);
 }

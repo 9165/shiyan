@@ -235,8 +235,8 @@ input[type="text"] {
 	margin-bottom: 70px;
 }
 .post_preview_text, .post_edit_text {
-	font-size: 50px;
 	margin-left: 63px;
+	font-size: 0.7em;
 }
 .post_preview_image, .post_edit_image {
 	background-color: #d2ceb9;
@@ -381,6 +381,10 @@ input[type="text"] {
 	50%{transform:scale(1.1,1.1)}
 	100%{}
 }
+@keyframes freedom_dive {
+	0%{}
+	100%{transform:rotate(180deg)}
+}
 .refresh {
 	width: 80px; height: 80px;
 	background-size: 100% 100%;
@@ -391,7 +395,7 @@ input[type="text"] {
 	border-radius: 10px;
 }
 .new_alert {
-	font-size: 70px; background-color: rgba(255,255,255,0.9); box-shadow: rgba(85,97,95,.5) 0 5px 5px; width: calc(80% - 60px); padding: 30px; border-radius: 20px; text-align: center; word-break: break-all; z-index: 10;
+	font-size: 60px; background-color: rgba(255,255,255,0.9); box-shadow: rgba(85,97,95,.5) 0 5px 5px; width: calc(80% - 60px); padding: 30px; border-radius: 20px; text-align: center; word-break: break-all; z-index: 10;
 	display: none;
 	transition: none;
 }

@@ -40,7 +40,7 @@
 		
 
 		<div class="top_bar2">
-			愿望广场<img class="refresh" onclick="getFeed(false);" style="margin-top: -30px;" />
+			愿望广场<img class="refresh" onclick="refresh();" style="margin-top: -30px; border: 0; transform: none; position: relative; left: 40px; top: 20px;" />
 			<div id="btn_make_post" onclick="goTo('p2'); document.getElementById('post_edit_text').select();"></div>
 		</div>
 		
@@ -55,7 +55,7 @@
 			
 			
 		</div>
-
+		<div id="btn_more" style="text-align: center; position: fixed; left: calc(50% - 200px); bottom: -80px; width: 400px; background-color: rgba(217,213,196,0.8); padding: 10px 0; border-radius: 10px" onclick="getFeed(false);">显示更多</div>
 	</div>
 
 

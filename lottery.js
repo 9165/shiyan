@@ -1,7 +1,7 @@
 var illuData;	//图鉴收集情况数据：Array数组，八个食物的收集进度0-3（按id排序，第一个是id=0的）
 
 var x4 = new XMLHttpRequest();	//抽奖请求
-
+var x15 = new XMLHttpRequest(); //已集齐碎片 - post - wish_square
 
 window.onload = function() {
 	getInfo();
@@ -32,9 +32,12 @@ function getIlluData(check) {
 				}
 			}
 			if(isCompleted) {
-				newAlert('你已经集齐了所有碎片~');
-				$('#p2 .back_btn').attr('onclick',"window.open('index.html','_self')");
-				goTo('p2');
+				$('#lottery_btn').css('filter','grayscale(100%)').attr('onclick','newAlert("已经集齐了，不用抽了~")');
+				if(!info['has_info']) {
+					newAlert('你已经集齐了所有碎片~');
+					$('#p2 .back_btn').attr('onclick',"window.open('index.html','_self')");
+					goTo('p4');
+				}
 			}			
 		}
 	};
@@ -142,6 +145,36 @@ function showLotteryChr(num) {
 function showLh(num) {
 	$('#lh_img').css('background-image','url(img/lottery/lottery_chr/lh'+num+'.png)');
 	$('#lh_frame').fadeIn();
+}
+
+
+function sendLotteryInfo() {
+	var name = document.getElementById('lottery_name').value;
+	var phone = document.getElementById('lottery_phone').value;
+	var dormitory = document.getElementById('lottery_dormitory').value;
+
+	var newAlertWord='';
+	if(name.replace(/ /g, "") == '') {newAlertWord+='姓名不能为空或只含空格哦~'}
+	if(phone.replace(/ /g, "") == '') {newAlertWord+='手机号不能为空或只含空格哦~'}
+	if(dormitory.replace(/ /g, "") == '') {newAlertWord+='宿舍不能为空或只含空格哦~'}
+	if(newAlertWord!=''){newAlert(newAlertWord); return false;}
+
+	x15.open('put',baseurl + '/playground/lottery', false);
+	x15.withCredentials = true;
+	x15.setRequestHeader('Content-Type','application/json');
+	x15.onload = () => {
+		if(x15.status !== 200) {
+			newAlert('提交信息请求出错，状态码为'+x15.status+'，出错信息为'+JSON.parse(x15.responseText).message);
+		}
+		else {
+			newAlert('提交成功，恭喜完成集图鉴活动');
+			goTo('p2');
+		}
+	}
+	x15.onerror = () => {
+		newAlert('提交信息请求出错，网络异常');
+	}
+	x15.send(JSON.stringify({'name':name,'tel':phone,'address':dormitory}));
 }
 
 

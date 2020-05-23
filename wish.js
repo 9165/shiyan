@@ -31,12 +31,12 @@ function collectData() {	//内容-内容-()-检查-发送。完成内容后，�
 
 	var newAlertWord='';
 
-	if(wishContent.replace(/ /g, "") == '') {newAlertWord+='信的内容不得为空或只含空格\n'}
-	if(wishName.replace(/ /g, "") == '') {newAlertWord+='署名不得为空或只含空格\n'}
-	if(wishPhone == '10000000000' && wishWechat == 'null') {newAlertWord+='手机号和微信号至少填写一项\n'}
+	if(wishContent.replace(/ /g, "") == '') {newAlertWord+='信的内容不得为空或只含空格；'}
+	if(wishName.replace(/ /g, "") == '') {newAlertWord+='署名不得为空或只含空格；'}
+	if(wishPhone == '10000000000' && wishWechat == 'null') {newAlertWord+='手机号和微信号至少填写一项；'}
 	if(wishPhone!='10000000000') {
 		if(!(/^1\d{10}$/.test(wishPhone))){
-        newAlertWord+='若填写手机号，则手机号必须为1开头、11位\n';
+        newAlertWord+='若填写手机号，则手机号必须为1开头、11位；';
     	}
 	}
 	if(newAlertWord!='') {

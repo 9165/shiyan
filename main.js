@@ -14,6 +14,7 @@ xhr对象：
 	x12：设置愿望广场昵称 - post - wish_square
 	x13：获取帖子 - get - wish_square
 	x14：发帖 - post - wish_square
+	x15：已集齐碎片 - post - wish_square
 */
 
 // var user = 'lotteryer6';
@@ -36,7 +37,7 @@ var x1 = new XMLHttpRequest();	//登录，提交用户名
 var x2 = new XMLHttpRequest();	//获取用户信息
 
 function logIn() {
-	var user = prompt('输入一个名字，若之前未输入过则视为新注册\n这个框每进一次首页弹一次\n默认为lotteryer1抽奖100次\n按取消会出错','lotteryer1');
+	var user = prompt('输入一个名字，若之前未输入过则视为新注册；这个框每进一次首页弹一次；默认为lotteryer1抽奖100次；按取消会出错','lotteryer1');
 	x1.open('post',baseurl + '/set_open_id', false);
 	x1.withCredentials = true;
 	x1.setRequestHeader('Content-Type','application/json');
