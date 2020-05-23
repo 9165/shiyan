@@ -35,19 +35,9 @@
             <div class="btn" style="float: right;" onclick="goTo('p2')">我的许愿</div>
         </div>
 
-        <div class="main">
-            <div id="fav_help_wish0" class="detail">
-                <div class="fav_content" style="float: left;">我的助愿-愿望文案</div>
-                <div class="wishDetail btn btnActive" style="float: right;" onclick="goTo('p3')">详情</div>
-            </div>
-            <div id="fav_help_wish1" class="detail">
-                <div class="fav_content" style="float: left;">我的助愿-愿望文案</div>
-                <div class="wishDetail btn btnActive" style="float: right;" onclick="goTo('p3')">详情</div>
-            </div>
-            <div id="fav_help_wish2" class="detail">
-                <div class="fav_content" style="float: left;">我的助愿-愿望文案</div>
-                <div class="wishDetail btn btnActive" style="float: right;" onclick="goTo('p3')">详情</div>
-            </div>
+        <div id="fav_help_wish_main" class="main">
+            
+            
         </div>
 
     </div>
@@ -76,19 +66,8 @@
             <div class="btn" style="float: left;" onclick="goTo('p1')">我的助愿</div>
             <div class="btn btnActive" style="float: right;">我的许愿</div>
         </div>
-        <div class="main">
-            <div id="fav_wish0" class="detail">
-                <div class="fav_content" style="float: left;">我的许愿-愿望文案</div>
-                <div class="wishDetail btnActive " style="float: right;" onclick="goTo('p3')"><span style="position: relative; top: calc(50% - 65px)">确认<br/>实现</span></div>
-            </div>
-            <div id="fav_wish1" class="detail">
-                <div class="fav_content" style="float: left;">我的许愿-愿望文案</div>
-                <div class="wishDetail btnActive " style="float: right;" onclick="goTo('p3')"><span style="position: relative; top: calc(50% - 65px)">确认<br/>实现</span></div>
-            </div>
-            <div id="fav_wish2" class="detail">
-                <div class="fav_content" style="float: left;">我的许愿-愿望文案</div>
-                <div class="wishDetail btnActive " style="float: right;" onclick="goTo('p3')"><span style="position: relative; top: calc(50% - 65px)">确认<br/>实现</span></div>
-            </div>
+        <div id="fav_wish_main" class="main">
+            
         </div>
 
     </div>
@@ -112,7 +91,7 @@
             <div class="help_close" onclick="$(this).parent().fadeOut();"></div>
         </div>
 
-        <img id="fav_help_wish_chr" src="" style="width: 300px;height: 300px;position: absolute;right: 100px;top: 200px;background-color: white;z-index: 2;transform: rotate(-5deg);box-shadow: rgba(0,0,0,0.3) 0 10px 10px 5px;" alt="">
+        <img id="fav_help_wish_chr" src="" style="width: 300px;height: 300px;position: absolute;right: 100px;top: 200px;background-color: white;z-index: -1;transform: rotate(-5deg);box-shadow: rgba(0,0,0,0.3) 0 10px 10px 5px; padding: 20px;" alt="">
 
         <div style="width:855px; line-height: 40px; margin-bottom:30px;">
             <p>署名：<span class="fav_wish_name"></span></p>

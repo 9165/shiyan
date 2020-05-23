@@ -42,21 +42,14 @@
 	        </div>
 
 		
-			<textarea name="" id="wish_content" placeholder="[示例]
-为我唱一首歌
-晨间叫醒我
-为我读一首诗
-一起监督写作业
-生日当天发祝福
-为我拍一张照片（蓝天、笑脸、花）
-为我点一份美团早餐
-晚安时间陪我夜聊"></textarea>
+			<textarea name="" id="wish_content" placeholder="请写下你的愿望！
+示例：为我唱一首歌"></textarea>
 		
 			<div style="width: 800px; margin-bottom: 30px;">
 				<span style="font-size: 50px;">选择许愿精灵(右划更多)</span>
 				<div style="width:100%; overflow: scroll; display: flex; flex-direction: row;">
 					<div id="select_paper_frame" style="display:flex; margin-top: 10px; width: 200%; height: 250px; align-items: center; ">
-						<div class="btn_paper" id="btn_paper0" style="background-image:url(img/wish/paper/paper0.png); background-color: currentColor;" onclick="selectPaper(0);">✔</div>
+						<div class="btn_paper" id="btn_paper0" style="border:currentColor solid 6px; background-image:url(img/wish/paper/paper0.png)" onclick="selectPaper(0);"></div>
 						<div class="btn_paper" id="btn_paper1" style="background-image:url(img/wish/paper/paper1.png)" onclick="selectPaper(1);"></div>
 						<div class="btn_paper" id="btn_paper2" style="background-image:url(img/wish/paper/paper2.png)" onclick="selectPaper(2);"></div>
 						<div class="btn_paper" id="btn_paper3" style="background-image:url(img/wish/paper/paper3.png)" onclick="selectPaper(3);"></div>
@@ -80,29 +73,28 @@
 			<div class="back_btn" onclick="goTo('p1')"></div>
 		</div>
 		
-		<div style="height: 200px;"></div>
+		<div class="center_div" style="display: flex; flex-direction: column; justify-content: center;">
+			<table id="wish_info" style="margin-bottom: 0;">
+				<tr>
+					<td><div style="width: 200px;">署名</div></td>
+					<td><input type="text" id="wish_name" onkeyup="enterTo('wish_phone')"></td>
+				</tr>
+				<tr>
+					<td colspan="2" style="font-size: 40px; text-align: center;">手机号和微信号至少填一项，若想在能沟通基础上保护隐私则可以只填微信号；若为手机号必须为11位</td>
+				</tr>
+				<tr>
+					<td style="width: 20%;">手机</td>
+					<td><input type="text" id="wish_phone" onkeyup="enterTo('wish_wechat')"></td>
+				</tr>
+				<tr>
+					<td style="width: 20%;">微信号</td>
+					<td><input type="text" id="wish_wechat"></td>
+				</tr>
+			</table>
+			<p style="margin:0 40 90px 40px; font-size: 50px;">梯仔答应你，绝不乱告诉别人你的信息</p>
 
-		<table id="wish_info" style="margin-bottom: 0;">
-			<tr>
-				<td>署名</td>
-				<td><input type="text" id="wish_name" onkeyup="enterTo('wish_phone')"></td>
-			</tr>
-			<tr>
-				<td colspan="2" style="font-size: 40px; text-align: center;">手机号和微信号至少填一项，若想在能沟通基础上保护隐私则可以只填微信号；若为手机号必须为11位</td>
-			</tr>
-			<tr>
-				<td>手机</td>
-				<td><input type="text" id="wish_phone" onkeyup="enterTo('wish_wechat')"></td>
-			</tr>
-			<tr>
-				<td>微信号</td>
-				<td><input type="text" id="wish_wechat"></td>
-			</tr>
-		</table>
-
-		<p style="margin:0 40 90px 40px; font-size: 50px;">梯仔答应你，绝不乱告诉别人你的信息</p>
-
-		<img id="btn_check" src="img/wish/yes.png" class="btn" onclick="collectData();"/>
+			<p align="center" style="line-height: 40px;"><img id="btn_check" src="img/wish/yes.png" width="380px" class="btn" onclick="collectData();"/></p>
+		</div>
 	</div>
 	
 	<div id="p3" class="frame" style="text-align: left;">
@@ -122,16 +114,19 @@
 		<img id="btn_send_wish" src="img/wish/yes.png" class="btn" style="position: absolute; bottom: 0; left: calc(50% - 190px)" onclick="sendWish();"/>
 	</div>
 
-	<div id="p4" class="frame">
+	<div id="p4" class="frame bg_wish">
 
 		<div class="top_bar" style="margin-bottom: 200px;">
 			<!-- <p>抽取愿望</p> -->
 			<div class="back_btn" onclick="window.open('index.html','_self')"></div>
 		</div>
-
-		<h2 style="font-size: 110px;">许愿成功</h2>
-		<img src="img/wish/tomakewish.png" class="btn"/>
-		<img src="img/wish/tohelpwish.png" class="btn"/>
+		
+		<div class="center_div" style="text-align: center;">
+			<h2 style="font-size: 110px;">许愿成功</h2>
+			<h3><img alt="再许一次愿" src="img/wish/tomakewish.png" class="btn" onclick="window.location.reload();"/></h3>
+			<h3><img alt="去助愿" src="img/wish/tohelpwish.png" class="btn" onclick="window.open('help_wish.html','_self')"/></h3>
+		</div>
+		
 
 	</div>
 

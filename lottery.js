@@ -4,25 +4,39 @@ var x4 = new XMLHttpRequest();	//抽奖请求
 
 
 window.onload = function() {
-	logIn();
+	getInfo();
 	//检测抽奖次数，0次则把图标变灰
 	x2.onload = () => {
 		setInfo();
 		if(parseInt(info.lottery)==0) {
 			$('#lottery_btn').css('filter','grayscale(100%)').attr('onclick','alert("好像抽奖次数不够了呢qwq！！")');
 		}
+		getIlluData(true);
 	}
 }
 
 // 获取图鉴收集情况
 var x5 = new XMLHttpRequest();
-function getIlluData() {
+function getIlluData(check) {
 	x5.open('get',baseurl + '/playground/lottery');
 	x5.withCredentials = true;
 
 	x5.onload = () => {
 		illuData = JSON.parse(x5.responseText)['progress'];
 		printIlluPreview();
+		if(check) {
+			var isCompleted = true;
+			for(h=0; h<=illuData.length-1; h++) {
+				if(illuData[h]!=3) {
+					isCompleted = false;
+				}
+			}
+			if(isCompleted) {
+				alert('你已经集齐了所有碎片~');
+				$('#p2 .back_btn').attr('onclick',"window.open('index.html','_self')");
+				goTo('p2');
+			}			
+		}
 	};
 	x5.onerror = () => {	//检测网络异常
 		alert('获取图鉴收集情况请求出错，网络异常');
@@ -129,6 +143,7 @@ function showLh(num) {
 	$('#lh_img').css('background-image','url(img/lottery/lottery_chr/lh'+num+'.png)');
 	$('#lh_frame').fadeIn();
 }
+
 
 //bi - brief introduction; di - detail introduction
 var food = [

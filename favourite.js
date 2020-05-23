@@ -1,5 +1,5 @@
 window.onload = function() {
-	logIn();
+	getInfo();
 	getMyWish();
 	getMyHelpWish();
 }
@@ -28,10 +28,12 @@ function getMyWish() {
 
 function printMyWish() {
 	if(myWish.length != 0) {
+		document.getElementById('fav_wish_main').innerHTML='';
 		for(e=0; e<=myWish.length-1; e++) {
+			document.getElementById('fav_wish_main').innerHTML+='<div id="fav_wish'+e+'" class="detail"><div class="fav_content" style="float: left;"></div><div class="wishDetail btnActive" style="float: right;"><span style="position: relative; top: calc(50% - 65px)">确认<br/>实现</span></div></div>';
 			$('#fav_wish'+e).css('display','block');
 			$('#fav_wish'+e+' .wishDetail').attr('onclick','confirmFinish('+e+','+myWish[e]['id']+')');
-			$('#fav_wish'+e+' .fav_content').html(myWish[e]['content']);
+			$('#fav_wish'+e+' .fav_content').text(myWish[e]['content']);
 		}
 	}
 }
@@ -51,31 +53,32 @@ function getMyHelpWish() {
 }
 
 function printMyHelpWish() {
+	document.getElementById('fav_help_wish_main').innerHTML='';
 	if(myHelpWish.length != 0) {
 		for(f=0; f<=myHelpWish.length-1; f++) {
-			$('#fav_help_wish'+f).css('display','block');
-			$('#fav_help_wish'+f+' .fav_content').html(myHelpWish[f]['content']);
+			document.getElementById('fav_help_wish_main').innerHTML+='<div id="fav_help_wish'+f+'" class="detail"><div class="fav_content" style="float: left;"></div><div class="wishDetail btn btnActive" style="float: right;">详情</div></div>';
+			$('#fav_help_wish'+f+' .fav_content').text(myHelpWish[f]['content']);
 			$('#fav_help_wish'+f+' .wishDetail').attr('onclick','printHelpWishDetail('+f+');');
 		}
 	}
 }
 
 function printHelpWishDetail(num) {
-	$('.fav_wish_name').html(myHelpWish[num]['name']);
+	$('.fav_wish_name').text(myHelpWish[num]['name']);
 	if(myHelpWish[num]['tel'] == '10000000000') {
-		$('.fav_wish_phone').html('保密');
+		$('.fav_wish_phone').text('保密');
 	}
 	else {
-		$('.fav_wish_phone').html(myHelpWish[num]['phone']);
+		$('.fav_wish_phone').text(myHelpWish[num]['tel']);
 	}
 	if(myHelpWish[num]['wechat'] == 'null') {
-		$('.fav_wish_wechat').html('保密');
+		$('.fav_wish_wechat').text('保密');
 	}
 	else {
-		$('.fav_wish_wechat').html(myHelpWish[num]['wechat']);
+		$('.fav_wish_wechat').text(myHelpWish[num]['wechat']);
 	}
 
-	$('.fav_content2').html(myHelpWish[num]['content']);
+	$('.fav_content2').text(myHelpWish[num]['content']);
 
 	$('#btn_finish_help_wish').attr('onclick','fogHelpWish('+num+','+myHelpWish[num]['id']+',1)');
 	$('#btn_giveup_help_wish').attr('onclick','fogHelpWish('+num+','+myHelpWish[num]['id']+',0)');

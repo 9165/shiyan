@@ -1,5 +1,5 @@
 window.onload = function() {
-	logIn();
+	getInfo();
 	$('.frame').css('height',window.innerHeight+'px');
 	document.getElementById('wish_content').select();
 }
@@ -12,10 +12,8 @@ var wishWechat = '';
 
 function selectPaper(num) {
 	wishPaper = num;
-	$('.btn_paper').html('');
-	$('.btn_paper').css('background-color','rgba(78,92,89,0.5)');
-	$('#btn_paper'+num).html('✔');
-	$('#btn_paper'+num).css('background-color','currentColor');
+	$('.btn_paper').css('border','0');
+	$('#btn_paper'+num).css('border','currentColor solid 6px');
 }
 
 function collectData() {	//内容-内容-()-检查-发送。完成内容后，检查页前，除了信纸之外的信息收集，外加判断
@@ -51,20 +49,20 @@ function collectData() {	//内容-内容-()-检查-发送。完成内容后，�
 
 function printData() {	//将信息重新打一遍供检查
 	goTo('p3');
-	$('#confirm_name').html(wishName);
+	$('#confirm_name').text(wishName);
 	if(wishPhone == '10000000000') {
-		$('#confirm_phone').html('保密');
+		$('#confirm_phone').text('保密');
 	}
 	else {
-		$('#confirm_phone').html(wishPhone);
+		$('#confirm_phone').text(wishPhone);
 	}
 	if(wishWechat == 'null') {
-		$('#confirm_wechat').html('保密');
+		$('#confirm_wechat').text('保密');
 	}
 	else {
-		$('#confirm_wechat').html(wishWechat);
+		$('#confirm_wechat').text(wishWechat);
 	}
-	$('#confirm_content').html(wishContent);
+	$('#confirm_content').text(wishContent);
 }
 
 var x3 = new XMLHttpRequest(); //许愿请求 - post - wish

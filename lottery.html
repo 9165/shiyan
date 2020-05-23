@@ -13,7 +13,7 @@
 
 <body>
 
-	<div id="p1" class="frame" style="display: flex;" title="抽奖页">
+	<div id="p1" class="frame bg_lottery" style="display: flex;" title="抽奖页">
 
 		<div class="top_bar" style="margin-bottom: 0;">
 			<!-- <p>抽取愿望</p> -->
@@ -37,24 +37,26 @@
             <div class="lottery_chance chance">抽奖:<span class="lottery_chance_num"></span>次</div>
         </div>
 		 
+		<div style="position: absolute; left: 0; bottom: 0; width: 100%;">
+			<div id="lottery_animation" style="position: relative; top: -200px; left: 25%;">
+				
+				<img src="img/lottery/lottery_stump.svg" style="margin-top: 400px;" alt="树桩">
 
-		<div id="lottery_animation">
+				<img id="lottery_pot" src="img/lottery/lottery_pot.svg" style="position:relative; top:-900px;" alt="锅">
+				
+				<img id="lottery_spoon" src="img/lottery/lottery_spoon.svg" width="180px" style="position:relative; left:350px; top:-1350px; transform-origin: 100% 50%;" alt="勺子">
+
+			</div>
 			
-			<img src="img/lottery/lottery_stump.svg" style="margin-top: 400px;" alt="树桩">
+			<table style="width: 100%; z-index: 8; margin-top:210px; text-align: center;"><tr>
+				<td><img id="lottery_btn" alt="抽奖" class="btn" src="img/lottery/lottory2.png" style="display: block; margin: 0 auto;" onclick="
+				$('#lottery_spoon').css('animation','spoon 2 0.5s'); 
+				$('#lottery_pot').css('animation','lottery_pot 2 0.5s'); 
+				setTimeout('$(\'#lottery_spoon\').css(\'animation\',\'none\'); $(\'#lottery_pot\').css(\'animation\',\'none\'); lottery();',1000);"/></td>
 
-			<img id="lottery_pot" src="img/lottery/lottery_pot.svg" style="position:relative; top:-900px;" alt="锅">
-			
-			<img id="lottery_spoon" src="img/lottery/lottery_spoon.svg" width="180px" style="position:relative; left:350px; top:-1350px; transform-origin: 100% 50%;" alt="勺子">
-
+				<td><img id="lottery_illu" alt="图鉴" class="btn long_btn" style="display: block; margin: 0 auto;" onclick="goTo('p2'); getIlluData(false);" src="img/lottery/picture.png"/></td>
+			</tr></table>
 		</div>
-
-		<img id="lottery_btn" alt="抽奖" class="btn" src="img/lottery/lottory2.png"  style="margin-top: 210px; margin-bottom: 49px;" onclick="
-		$('#lottery_spoon').css('animation','spoon 2 0.5s'); 
-		$('#lottery_pot').css('animation','lottery_pot 2 0.5s'); 
-		setTimeout('$(\'#lottery_spoon\').css(\'animation\',\'none\'); $(\'#lottery_pot\').css(\'animation\',\'none\'); lottery();',1000);" />
-
-		<img id="lottery_illu" alt="图鉴" class="btn long_btn" onclick="goTo('p2'); getIlluData();" src="img/lottery/picture.png"/>
-
 	</div>
 
 	<div class="frame" id="p2">
@@ -87,12 +89,12 @@
 
 	<div class="frame" id="p3">
 
-		<div class="top_bar" style="margin-bottom: 10px;">
+		<div class="top_bar" style="margin-bottom: 10px; position: absolute; left: 0; top: 0;">
 			<!-- <p>抽取愿望</p> -->
 			<div class="back_btn" onclick="goTo('p2')"></div>
 		</div>
 
-		<div style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; width: calc(100% - 100px); height: 70%; margin: 0 auto;">
+		<div style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; width: calc(100% - 100px); height: 70%; margin: 0 auto; margin-top: 180px;">
 			
 			<p id="lottery_more_name" style="font-size: 90px; text-align:center; width:calc(90% - 430px);">食物名字</p>
 

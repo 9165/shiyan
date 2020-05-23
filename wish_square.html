@@ -38,8 +38,8 @@
 		
 
 		<div class="top_bar2">
-			愿望广场
-			<div id="btn_make_post" onclick="goTo('p2')"></div>
+			愿望广场<img class="refresh" onclick="getFeed(false);" style="margin-top: -30px;" />
+			<div id="btn_make_post" onclick="goTo('p2'); document.getElementById('post_edit_text').select();"></div>
 		</div>
 		
 		<div id="post_content_frame" class="post_content_frame">
@@ -66,10 +66,10 @@
 
 		<div class="top_bar2" style="margin-bottom: 0;">
 			发帖
-			<div id="btn_send_post" onclick="goTo('p2')"></div>
+			<div id="btn_send_post" title="发送" onclick="sendPost();"></div>
 		</div>
 		
-		<textarea name="" id="post_edit_text"placeholder="说些什么吧……"></textarea>
+		<textarea name="" id="post_edit_text"placeholder="把你的愿望分享出来！(图片上传暂时不可用，不会写)"></textarea>
 
 		<div id="post_edit_image_frame" style="align-self: flex-start; display: inline-block; width: calc(100% - 86px); display: flex; flex-wrap: wrap; padding-left: 86px;">
 			<div class="post_edit_image">

@@ -1,3 +1,7 @@
+.frame {
+     overflow-y: scroll;
+}
+
 .wishBtn {
      width: 600px; height: 100px;
      margin: 0 auto;
@@ -31,7 +35,7 @@
      align-self: flex-start;
      border: currentColor solid 8px;
      box-sizing: border-box;
-     display: none; transition: 0;
+     transition: 0;
      border-radius: 15px;
  }
  

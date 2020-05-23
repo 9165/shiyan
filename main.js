@@ -16,7 +16,7 @@ xhr对象：
 	x14：发帖 - post - wish_square
 */
 
-var user = 'lotteryer6';
+// var user = 'lotteryer6';
 
 
 window.onload = function() {
@@ -36,20 +36,30 @@ var x1 = new XMLHttpRequest();	//登录，提交用户名
 var x2 = new XMLHttpRequest();	//获取用户信息
 
 function logIn() {
-
+	var user = prompt('输入一个名字，若之前未输入过则视为新注册\n这个框每进一次首页弹一次\n默认为lotteryer1抽奖100次\n按取消会出错','lotteryer1');
 	x1.open('post',baseurl + '/set_open_id', false);
 	x1.withCredentials = true;
 	x1.setRequestHeader('Content-Type','application/json');
 	x1.onload = () => {
 		if(x1.status !== 200) {
-			alert('登录请求出错，状态码为'+x1.status+'，出错信息为'+JSON.parse(x1.responseText).message);
+			if(x1.status === 500) {
+				alert(500);
+			}
+			else {
+				alert('登录请求出错，状态码为'+x1.status+'，出错信息为'+JSON.parse(x1.responseText).message);
+			}
+		}
+		else {
+			getInfo();
 		}
 	}
 	x1.onerror = () => {
 		alert('登录请求出错，网络异常');
 	}
 	x1.send(JSON.stringify({'openid':user}));
+}
 
+function getInfo() {
 	x2.open('get',baseurl + '/info');
 	x2.withCredentials = true;
 

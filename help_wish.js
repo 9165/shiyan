@@ -1,5 +1,5 @@
 window.onload = function() {
-	logIn();
+	getInfo();
 }
 
 var getWishData;
@@ -24,13 +24,13 @@ function getHelpWish() {
 
 function printHelpWish() {
 	$('#help_wish_content0')
-		.html(getWishData[0]['content'])
+		.text(getWishData[0]['content'])
 		.attr('onclick','chooseHelpWish(0,'+getWishData[0]['id']+')');
 	$('#help_wish_content1')
-		.html(getWishData[1]['content'])
+		.text(getWishData[1]['content'])
 		.attr('onclick','chooseHelpWish(1,'+getWishData[1]['id']+')');
 	$('#help_wish_content2')
-		.html(getWishData[2]['content'])
+		.text(getWishData[2]['content'])
 		.attr('onclick','chooseHelpWish(2,'+getWishData[2]['id']+')');
 }
 
@@ -73,18 +73,18 @@ function sendHelpWish() {
 }
 
 function printWishPerson() {
-	$('#help_wish_name').html(getWishData[chooseWishNum]['name']);
+	$('#help_wish_name').text(getWishData[chooseWishNum]['name']);
 	if(getWishData[chooseWishNum]['tel'] == '10000000000') {
-		$('#help_wish_phone').html('保密');
+		$('#help_wish_phone').text('保密');
 	}
 	else {
-		$('#help_wish_phone').html(getWishData[chooseWishNum]['tel']);
+		$('#help_wish_phone').text(getWishData[chooseWishNum]['tel']);
 	}
 	if(getWishData[chooseWishNum]['wechat'] == 'null') {
-		$('#help_wish_wechat').html('保密');
+		$('#help_wish_wechat').text('保密');
 	}
 	else {
-		$('#help_wish_wechat').html(getWishData[chooseWishNum]['wechat']);
+		$('#help_wish_wechat').text(getWishData[chooseWishNum]['wechat']);
 	}
 	$('#help_wish_chr').css('background-image','url(img/lottery/lottery_chr/nr'+getWishData[chooseWishNum]['paper']+'.png)')
 	goTo('p3');
