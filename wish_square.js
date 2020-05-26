@@ -54,6 +54,7 @@ function chooseImage() {
           img = that.document.getElementById("post_img" + (i + 1));
         }
         img.src = res.localIds[i - 1];
+        img.dataset.localId = res.localIds[i - 1];
         img.parentNode.style.display = "inline";
         that.img_count++;
       }
@@ -65,6 +66,7 @@ function del_img(t) {
   t.parentNode.style.display = "none";
   img_count--;
   t.parentNode.children[0].src = "";
+  t.parentNode.children[0].dataset.localId = undefined;
 }
 
 window.onload = function () {
@@ -279,7 +281,7 @@ function uploadImage(succ_func) {
   for (let i = 1; i < 3; i++) {
     let img = document.getElementById("post_img" + i);
     if (img.src != window.location.href) {
-      img_list.push(img.src);
+      img_list.push(img.dataset.localId);
     }
   }
   if (img_list.length) {
